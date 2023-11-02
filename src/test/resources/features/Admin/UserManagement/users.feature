@@ -1,5 +1,5 @@
 @usermanagement
-Feature: feature to test the user management
+Feature: Feature to test the user management
 
   Background:
     Given the user logins the page with valid credentials

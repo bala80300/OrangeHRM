@@ -26,10 +26,14 @@ public class AdminPage extends OrangeHRMBase {
         return this;
     }
 
-    public AdminPage enterEmployeenameForSearch(String employee_name) throws InterruptedException {
+    public AdminPage enterEmployeenameForSearch(String employee_name) {
         WebElement employeenameElement = driver.findElement(By.xpath("//input[@placeholder='Type for hints...']"));
         employeenameElement.sendKeys(employee_name);
-        Thread.sleep(2000);
+        try {
+            Thread.sleep(2000);
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
         employeenameElement.sendKeys(Keys.DOWN, Keys.RETURN);
         return this;
     }
