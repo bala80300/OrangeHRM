@@ -4,14 +4,15 @@ import io.cucumber.java.en.*;
 import org.OrangeHRM_BDD.Pages.Admin.AdminPage;
 
 public class Users extends AdminPage {
+    AdminPage adminPage = new AdminPage();
     @Given("the user is in user management page")
     public void theUserIsInUserManagementPage() {
-        AdminPage adminPage = new AdminPage();
         adminPage.selectAdminMenu();
     }
 
     @And("user notes the total records of the users")
     public void userNotesTheTotalRecordsOfTheUsers() {
+
     }
 
     @When("user searches with search parameters <username>, <user_role>, <employee_name>, <status>")

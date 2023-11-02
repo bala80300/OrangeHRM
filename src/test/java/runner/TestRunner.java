@@ -11,6 +11,7 @@ import io.cucumber.junit.CucumberOptions;
         glue = {"stepDefinitions", "hooks"},
         tags = "@usermanagement",
         monochrome = true,
+        dryRun = false,
         plugin = {
                 "pretty",
                 "html:target/cucumber-reports/cucumber.html",

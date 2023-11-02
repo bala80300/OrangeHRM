@@ -9,6 +9,7 @@ public class LoginPage extends OrangeHRMBase {
         driver.findElement(By.xpath("//div/h5")).isDisplayed();
         return this;
     }
+
     /**
      * @param username
      * @return
@@ -38,10 +39,8 @@ public class LoginPage extends OrangeHRMBase {
         return new DashboardPage();
     }
 
-    /**
-     * @description - This function is used for login
-     * @param username
-     * @param password
-     */
-
+    public LoginPage errorText() {
+        driver.findElement(By.xpath("//p[text()='Invalid credentials']")).getText();
+        return this;
+    }
 }
