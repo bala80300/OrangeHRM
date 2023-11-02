@@ -22,7 +22,7 @@ public class AdminPage extends OrangeHRMBase {
 
     public AdminPage userrole() {
         WebElement userroleDropdown = driver.findElement(By.xpath("(//div[@class='oxd-select-text-input'])[1]"));
-        userroleDropdown.sendKeys(Keys.DOWN,Keys.RETURN);
+        userroleDropdown.sendKeys(Keys.DOWN, Keys.RETURN);
         return this;
     }
 
@@ -30,13 +30,23 @@ public class AdminPage extends OrangeHRMBase {
         WebElement employeenameElement = driver.findElement(By.xpath("//input[@placeholder='Type for hints...']"));
         employeenameElement.sendKeys(employee_name);
         Thread.sleep(2000);
-        employeenameElement.sendKeys(Keys.DOWN,Keys.RETURN);
+        employeenameElement.sendKeys(Keys.DOWN, Keys.RETURN);
         return this;
     }
 
     public AdminPage status() {
         WebElement statusDropdown = driver.findElement(By.xpath("(//div[@class='oxd-select-text-input'])[2]"));
-        statusDropdown.sendKeys(Keys.DOWN,Keys.RETURN);
+        statusDropdown.sendKeys(Keys.DOWN, Keys.RETURN);
+        return this;
+    }
+
+    public AdminPage submitButton() {
+        driver.findElement(By.xpath("//button[text()=' Search ']")).click();
+        return this;
+    }
+
+    public AdminPage resetButton() {
+        driver.findElement(By.xpath("//button[text()=' Reset ']")).click();
         return this;
     }
 
