@@ -11,36 +11,40 @@ public class AdminPage extends OrangeHRMBase {
         return this;
     }
 
-    public String totalRecords() {
-        return driver.findElement(By.xpath("(//span[@class='oxd-text oxd-text--span'])[1]")).getText();
-    }
-
-    public AdminPage enterUsernameForSearch(String username) {
-        driver.findElement(By.xpath("(//input[@class='oxd-input oxd-input--active'])[1]")).sendKeys(username);
+    public AdminPage totalRecords() {
+        driver.findElement(By.xpath("(//span[@class='oxd-text oxd-text--span'])[1]")).getText();
         return this;
     }
 
-    public AdminPage userrole() {
-        WebElement userroleDropdown = driver.findElement(By.xpath("(//div[@class='oxd-select-text-input'])[1]"));
-        userroleDropdown.sendKeys(Keys.DOWN, Keys.RETURN);
+    public AdminPage enterUsernameForSearch(String username) {
+        WebElement usernameLocator = driver.findElement(By.xpath("(//input[@class='oxd-input oxd-input--active'])[2]"));
+        usernameLocator.sendKeys(username);
+        return this;
+    }
+
+    public AdminPage userRoleDropdown(String user_role) {
+        driver.findElement(By.xpath("(//div[@class='oxd-select-text-input'])[1]")).click();
+        WebElement userRoleDropdownLocator = driver.findElement(By.xpath("//*[@role='listbox']//*[text()="+user_role+"]"));
+        userRoleDropdownLocator.click();
         return this;
     }
 
     public AdminPage enterEmployeenameForSearch(String employee_name) {
-        WebElement employeenameElement = driver.findElement(By.xpath("//input[@placeholder='Type for hints...']"));
-        employeenameElement.sendKeys(employee_name);
+        WebElement employeenameLocator = driver.findElement(By.xpath("//input[@placeholder='Type for hints...']"));
+        employeenameLocator.sendKeys(employee_name);
         try {
             Thread.sleep(2000);
         } catch (InterruptedException e) {
             throw new RuntimeException(e);
         }
-        employeenameElement.sendKeys(Keys.DOWN, Keys.RETURN);
+        employeenameLocator.sendKeys(Keys.DOWN, Keys.RETURN);
         return this;
     }
 
-    public AdminPage status() {
-        WebElement statusDropdown = driver.findElement(By.xpath("(//div[@class='oxd-select-text-input'])[2]"));
-        statusDropdown.sendKeys(Keys.DOWN, Keys.RETURN);
+    public AdminPage statusDropdown(String status) {
+        driver.findElement(By.xpath("(//div[@class='oxd-select-text-input'])[2]"));
+        WebElement statusDropdownLocator = driver.findElement(By.xpath("//*[@role='option']//*[text()="+status+"]"));
+        statusDropdownLocator.click();
         return this;
     }
 

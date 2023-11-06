@@ -2,48 +2,54 @@ package stepDefinitions.Admin.UserManagement;
 
 import io.cucumber.java.en.*;
 import org.OrangeHRM_BDD.Pages.Admin.AdminPage;
+import org.junit.Assert;
 
 public class Users extends AdminPage {
     AdminPage adminPage = new AdminPage();
-
     @Given("the user is in user management page")
     public void theUserIsInUserManagementPage() {
-        adminPage.selectAdminMenu();
+        selectAdminMenu();
     }
 
     @And("user notes the total records of the users")
     public void userNotesTheTotalRecordsOfTheUsers() {
-        adminPage.totalRecords();
+        totalRecords();
     }
 
-    @When("user searches with search parameters <username> {String}, <user_role>, <employee_name> {String}, <status>")
-    public void userSearchesWithSearchParametersUsernameUser_roleEmployee_nameStatus(String username, String employee_name) {
-        adminPage.enterUsernameForSearch(username);
-        adminPage.userrole();
-        adminPage.enterEmployeenameForSearch(employee_name);
-        adminPage.status();
+    @When("user searches with search parameters {string}, {string}, {string}, {string}")
+    public void userSearchesWithSearchParameters(String username, String userRole, String employeeName, String status) {
+        enterUsernameForSearch(username);
+        userRoleDropdown(userRole);
+        enterEmployeenameForSearch(employeeName);
+        statusDropdown(status);
     }
 
     @And("clicks on Search button")
     public void clicksOnSearchButton() {
-        adminPage.submitButton();
+        submitButton();
     }
 
-    @Then("the searched user is displayed with the <message>")
-    public void theSearchedUserIsDisplayedWithTheMessage() {
+    @Then("the searched user is displayed with the {string}")
+    public void theSearchedUserIsDisplayedWithThe(String recordsMessage) {
+        totalRecords();
+        Assert.assertEquals(recordsMessage,"(1) Records Found");
     }
 
     @When("the user clicks on Reset button")
     public void theUserClicksOnResetButton() {
-        adminPage.resetButton();
+        resetButton();
     }
 
     @Then("the values in all of the search parameters should be removed")
     public void theValuesInAllOfTheSearchParametersShouldBeRemoved() {
-    }
+        enterUsernameForSearch(" ");
+        userRoleDropdown(" ");
+        enterEmployeenameForSearch(" ");
+        userRoleDropdown(" ");
+            }
 
     @And("it should show all the records")
     public void itShouldShowAllTheRecords() {
-        adminPage.totalRecords();
+        totalRecords();
     }
 }
