@@ -11,9 +11,9 @@ public class AdminPage extends OrangeHRMBase {
         return this;
     }
 
-    public AdminPage totalRecords() {
-        driver.findElement(By.xpath("(//span[@class='oxd-text oxd-text--span'])[1]")).getText();
-        return this;
+    public void totalRecords() {
+        WebElement recordMessage = driver.findElement(By.xpath("(//span[@class='oxd-text oxd-text--span'])[1]"));
+        recordMessage.getText();
     }
 
     public AdminPage enterUsernameForSearch(String username) {
@@ -22,9 +22,9 @@ public class AdminPage extends OrangeHRMBase {
         return this;
     }
 
-    public AdminPage userRoleDropdown(String user_role) {
+    public AdminPage userRoleDropdown(String userRole) {
         driver.findElement(By.xpath("(//div[@class='oxd-select-text-input'])[1]")).click();
-        WebElement userRoleDropdownLocator = driver.findElement(By.xpath("//*[@role='listbox']//*[text()="+user_role+"]"));
+        WebElement userRoleDropdownLocator = driver.findElement(By.xpath("//*[@role='listbox']//*[text()=" + userRole + "]"));
         userRoleDropdownLocator.click();
         return this;
     }
@@ -42,13 +42,13 @@ public class AdminPage extends OrangeHRMBase {
     }
 
     public AdminPage statusDropdown(String status) {
-        driver.findElement(By.xpath("(//div[@class='oxd-select-text-input'])[2]"));
-        WebElement statusDropdownLocator = driver.findElement(By.xpath("//*[@role='option']//*[text()="+status+"]"));
+        driver.findElement(By.xpath("(//div[@class='oxd-select-text-input'])[2]")).click();
+        WebElement statusDropdownLocator = driver.findElement(By.xpath("//*[@role='option']//*[text()=" + status + "]"));
         statusDropdownLocator.click();
         return this;
     }
 
-    public AdminPage submitButton() {
+    public AdminPage searchButton() {
         driver.findElement(By.xpath("//button[text()=' Search ']")).click();
         return this;
     }

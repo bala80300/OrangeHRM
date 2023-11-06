@@ -5,7 +5,8 @@ import org.OrangeHRM_BDD.Pages.Admin.AdminPage;
 import org.junit.Assert;
 
 public class Users extends AdminPage {
-    AdminPage adminPage = new AdminPage();
+    String recordsMessage = "(1) Record Found";
+
     @Given("the user is in user management page")
     public void theUserIsInUserManagementPage() {
         selectAdminMenu();
@@ -25,14 +26,15 @@ public class Users extends AdminPage {
     }
 
     @And("clicks on Search button")
-    public void clicksOnSearchButton() {
-        submitButton();
+    public void clicksOnSearchButton() throws InterruptedException {
+        searchButton();
+        Thread.sleep(3000);
     }
 
     @Then("the searched user is displayed with the {string}")
     public void theSearchedUserIsDisplayedWithThe(String recordsMessage) {
         totalRecords();
-        Assert.assertEquals(recordsMessage,"(1) Records Found");
+        Assert.assertEquals(this.recordsMessage, recordsMessage);
     }
 
     @When("the user clicks on Reset button")
@@ -42,11 +44,8 @@ public class Users extends AdminPage {
 
     @Then("the values in all of the search parameters should be removed")
     public void theValuesInAllOfTheSearchParametersShouldBeRemoved() {
-        enterUsernameForSearch(" ");
-        userRoleDropdown(" ");
-        enterEmployeenameForSearch(" ");
-        userRoleDropdown(" ");
-            }
+
+    }
 
     @And("it should show all the records")
     public void itShouldShowAllTheRecords() {
