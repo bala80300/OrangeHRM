@@ -6,30 +6,27 @@ import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 
 public class AdminPage extends OrangeHRMBase {
-    public AdminPage selectAdminMenu() {
+    public void selectAdminMenu() {
         driver.findElement(By.xpath("//span[text()='Admin']")).click();
-        return this;
     }
 
-    public void totalRecords() {
+    public String totalRecords() {
         WebElement recordMessage = driver.findElement(By.xpath("(//span[@class='oxd-text oxd-text--span'])[1]"));
-        recordMessage.getText();
+        return recordMessage.getText();
     }
 
-    public AdminPage enterUsernameForSearch(String username) {
+    public void enterUsernameForSearch(String username) {
         WebElement usernameLocator = driver.findElement(By.xpath("(//input[@class='oxd-input oxd-input--active'])[2]"));
         usernameLocator.sendKeys(username);
-        return this;
     }
 
-    public AdminPage userRoleDropdown(String userRole) {
+    public void userRoleDropdown(String userRole) {
         driver.findElement(By.xpath("(//div[@class='oxd-select-text-input'])[1]")).click();
         WebElement userRoleDropdownLocator = driver.findElement(By.xpath("//*[@role='listbox']//*[text()=" + userRole + "]"));
         userRoleDropdownLocator.click();
-        return this;
     }
 
-    public AdminPage enterEmployeenameForSearch(String employee_name) {
+    public void enterEmployeenameForSearch(String employee_name) {
         WebElement employeenameLocator = driver.findElement(By.xpath("//input[@placeholder='Type for hints...']"));
         employeenameLocator.sendKeys(employee_name);
         try {
@@ -38,24 +35,20 @@ public class AdminPage extends OrangeHRMBase {
             throw new RuntimeException(e);
         }
         employeenameLocator.sendKeys(Keys.DOWN, Keys.RETURN);
-        return this;
     }
 
-    public AdminPage statusDropdown(String status) {
+    public void statusDropdown(String status) {
         driver.findElement(By.xpath("(//div[@class='oxd-select-text-input'])[2]")).click();
         WebElement statusDropdownLocator = driver.findElement(By.xpath("//*[@role='option']//*[text()=" + status + "]"));
         statusDropdownLocator.click();
-        return this;
     }
 
-    public AdminPage searchButton() {
+    public void searchButton() {
         driver.findElement(By.xpath("//button[text()=' Search ']")).click();
-        return this;
     }
 
-    public AdminPage resetButton() {
+    public void resetButton() {
         driver.findElement(By.xpath("//button[text()=' Reset ']")).click();
-        return this;
     }
 
 }
