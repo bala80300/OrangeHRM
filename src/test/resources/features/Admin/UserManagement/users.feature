@@ -15,6 +15,6 @@ Feature: Feature to test the user management
     Then the values in all of the search parameters should be removed
     And it should show all the records
     Examples:
-      | username         | userRole       | employeeName | status         | message          |
-      | Josephdayanand91 | 'Admin'        | Joseph       | 'Enabled'      | (1) Record Found |
-#      | Bala80           | 'Admin'        | Nhung        | 'Enabled'      | No Records Found |
+      | username | userRole | employeeName | status     | message          |
+      | Admin    | 'Admin'  | Emerson      | 'Enabled'  | (1) Record Found |
+      | Admin    | 'Admin'  | Emerson      | 'Disabled' | No Records Found |

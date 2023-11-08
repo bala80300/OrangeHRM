@@ -15,6 +15,9 @@ public class AdminPage extends OrangeHRMBase {
         return recordMessage.getText();
     }
 
+    public String searchedUserDisplayMessage() {
+        return driver.findElement(By.xpath("(//span[@class='oxd-text oxd-text--span'])[1]")).getText();
+    }
     public void enterUsernameForSearch(String username) {
         WebElement usernameLocator = driver.findElement(By.xpath("(//input[@class='oxd-input oxd-input--active'])[2]"));
         usernameLocator.sendKeys(username);
