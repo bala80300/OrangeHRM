@@ -14,7 +14,7 @@ public class Users extends AdminPage {
 
     @And("user notes the total records of the users")
     public void userNotesTheTotalRecordsOfTheUsers() {
-        System.out.println("Total records displayed:"+totalRecords());
+        System.out.println("Total records displayed:" + totalRecords());
     }
 
     @When("user searches with search parameters {string}, {string}, {string}, {string}")
@@ -33,7 +33,7 @@ public class Users extends AdminPage {
     @Then("the searched user is displayed with the {string}")
     public void theSearchedUserIsDisplayedWithThe(String message) {
 //        System.out.println(searchedUserDisplayMessage()+"\n"+message);
-        Assert.assertEquals(searchedUserDisplayMessage(),message);
+        Assert.assertEquals(searchedUserDisplayMessage(), message);
     }
 
     @When("the user clicks on Reset button")
@@ -44,19 +44,23 @@ public class Users extends AdminPage {
     @Then("the values in all of the search parameters should be removed")
     public void theValuesInAllOfTheSearchParametersShouldBeRemoved() {
         WebElement usernameFieldClear = driver.findElement(By.xpath("(//input[@class='oxd-input oxd-input--active'])[2]"));
-        WebElement employeeNameFieldClear = driver.findElement(By.xpath("(//div[@class='oxd-select-text-input'])[2]"));
-        //WebElement userRoleDDClear = driver.findElement(By.xpath(("//*[@role='listbox']//*[text()='-- Select --']"));
-        if(usernameFieldClear.getAttribute("value")==null) {
-            System.out.println("Username text field is reset");
-        }
-        if(employeeNameFieldClear.getAttribute("value")==null) {
-            System.out.println("Employee name text field is reset");
-        }
+        WebElement userRoleDDClear = driver.findElement(By.xpath("(//div[@class='oxd-select-text-input'])[1]"));
+        WebElement employeeNameFieldClear = driver.findElement(By.xpath("//input[@placeholder='Type for hints...']"));
+        WebElement statusDDClear = driver.findElement(By.xpath("(//div[@class='oxd-select-text-input'])[2]"));
+
+        Assert.assertEquals("",usernameFieldClear.getText());
+
+        Assert.assertEquals(null,userRoleDDClear.getAttribute("value"));
+
+        Assert.assertEquals("",employeeNameFieldClear.getText());
+
+        Assert.assertEquals(null,statusDDClear.getAttribute("value"));
+
     }
 
     @And("it should show all the records")
     public void itShouldShowAllTheRecords() {
-//        Assert.assertEquals(totalRecords(),totalRecords());
-        System.out.println(totalRecords());
+        Assert.assertEquals(totalRecords(), totalRecords());
+        //System.out.println(totalRecords());
     }
 }
