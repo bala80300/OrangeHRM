@@ -1,12 +1,12 @@
 package stepDefinitions.Admin.UserManagement;
 
 import io.cucumber.java.en.*;
-import org.OrangeHRM_BDD.Pages.Admin.AdminPage;
+import org.OrangeHRM_BDD.Pages.Admin.UserManagement.SearchUsersPage;
 import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 
-public class Users extends AdminPage {
+public class Users extends SearchUsersPage {
     @Given("the user is in user management page")
     public void theUserIsInUserManagementPage() {
         selectAdminMenu();
@@ -48,11 +48,11 @@ public class Users extends AdminPage {
         WebElement employeeNameFieldClear = driver.findElement(By.xpath("//input[@placeholder='Type for hints...']"));
         WebElement statusDDClear = driver.findElement(By.xpath("(//div[@class='oxd-select-text-input'])[2]"));
 
-        Assert.assertEquals("",usernameFieldClear.getText());
+        Assert.assertEquals("",usernameFieldClear.getAttribute("value"));
 
         Assert.assertEquals(null,userRoleDDClear.getAttribute("value"));
 
-        Assert.assertEquals("",employeeNameFieldClear.getText());
+        Assert.assertEquals("",employeeNameFieldClear.getAttribute("value"));
 
         Assert.assertEquals(null,statusDDClear.getAttribute("value"));
 
