@@ -5,10 +5,9 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 
 public class AddUsersPage extends OrangeHRMBase {
-    public void selectAdminMenu() {
-        driver.findElement(By.xpath("//span[text()='Admin']")).click();
+    public String getAddUsersTitle() {
+        return driver.findElement(By.xpath("//div/h6")).getText();
     }
-
     public void userRoleDropdown(String userRole) {
         driver.findElement(By.xpath("(//div[@class='oxd-select-text-input'])[1]")).click();
         WebElement userRoleDropdownLocator = driver.findElement(By.xpath("//*[@role='listbox']//*[text()='" + userRole + "']"));

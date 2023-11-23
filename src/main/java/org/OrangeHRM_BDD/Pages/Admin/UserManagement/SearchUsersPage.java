@@ -8,6 +8,9 @@ public class SearchUsersPage extends OrangeHRMBase {
     public void selectAdminMenu() {
         driver.findElement(By.xpath("//span[text()='Admin']")).click();
     }
+    public String getSystemUserTitle() {
+        return driver.findElement(By.xpath("//div/h5")).getText();
+    }
 
     public String totalRecords() {
         WebElement recordMessage = driver.findElement(By.xpath("(//span[@class='oxd-text oxd-text--span'])[1]"));
