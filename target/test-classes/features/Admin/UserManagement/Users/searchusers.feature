@@ -1,10 +1,9 @@
-@usermanagement
-Feature: Feature to test the user management
+@searchuser
+Feature: Feature to test the user search
 
   Background:
     Given the user logins the page with valid credentials
 
-  @searchuser
   Scenario Outline: Verify search And reset functionality in user management
     Given the user is in user management page
     And user notes the total records of the users

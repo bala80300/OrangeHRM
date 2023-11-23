@@ -1,4 +1,4 @@
-package stepDefinitions.Admin.UserManagement;
+package stepDefinitions.Admin.UserManagement.Users;
 
 import io.cucumber.java.en.*;
 import org.OrangeHRM_BDD.Pages.Admin.UserManagement.SearchUsersPage;
@@ -6,7 +6,7 @@ import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 
-public class Users extends SearchUsersPage {
+public class SearchUsers extends SearchUsersPage {
     @Given("the user is in user management page")
     public void theUserIsInUserManagementPage() {
         selectAdminMenu();
