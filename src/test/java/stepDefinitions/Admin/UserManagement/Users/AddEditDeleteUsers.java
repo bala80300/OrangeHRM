@@ -39,8 +39,8 @@ public class AddEditDeleteUsers extends AddUsersPage {
         enterConfirmPassword(confirmPassword);
     }
 
-    @When("the user clicks on Save button")
-    public void the_user_clicks_on_save_button() {
+    @When("the user clicks on Save button in Add User Page")
+    public void the_user_clicks_on_save_button_in_add_user_page() {
         saveButton();
     }
 
@@ -53,5 +53,43 @@ public class AddEditDeleteUsers extends AddUsersPage {
         Thread.sleep(3000);
         Assert.assertEquals(addeduserLocator.getText(),username);
     }
+
+    @Given("the user navigates to already created user with {string}")
+    public void theUserNavigatesToAlreadyCreatedUserWith(String username) {
+        WebElement addeduserLocator = driver.findElement(By.xpath("(//div[text()='" + username + "'])[position() = 1]"));
+        js.executeScript("arguments[0].scrollIntoView();", addeduserLocator);
+    }
+
+    @When("the user clicks on edit button for the user with {string}")
+    public void theUserClicksOnEditButtonForTheUserWith(String username) {
+        WebElement addeduserLocator = driver.findElement(By.xpath("(//div[text()='" + username + "']/following::i)[position() = 2]"));
+        addeduserLocator.click();
+    }
+
+    @Then("the user is in Edit User Page")
+    public void theUserIsInEditUserPage() {
+        String editUserTitle = driver.findElement(By.xpath("//div/h6")).getText();
+        Assert.assertEquals(editUserTitle,"Edit User");
+    }
+
+    @When("user adds with parameters {string}, {string}")
+    public void userAddsWithParameters(String userRole, String status) {
+        searchUsersPage.userRoleDropdown(userRole);
+        searchUsersPage.statusDropdown(status);
+    }
+
+    @And("the user clicks on Save button in Edit user page")
+    public void theUserClicksOnSaveButtonInEditUserPage() {
+        saveButton();
+    }
+
+    @Then("the user with {string} should be updated to the records with {string}, {string}")
+    public void theUserWithShouldBeEditedAndUpdatedToTheRecordsWith(String username, String userRole, String status) {
+        WebElement editedUserRoleLocator = driver.findElement(By.xpath("(//div[text()='"+username+"']/following::div)[position()=2]"));
+        WebElement editedStatusLocator = driver.findElement(By.xpath("(//div[text()='"+username+"']/following::div)[position()=6]"));
+        Assert.assertEquals(editedUserRoleLocator,userRole);
+        Assert.assertEquals(editedStatusLocator,status);
+    }
 }
+
 
