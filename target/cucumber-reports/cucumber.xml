@@ -1,16 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="Cucumber" time="32.095" tests="1" skipped="0" failures="1" errors="0">
-<testcase classname="Feature to test the add, edit and delete options for the user" name="Verify the add user functionality" time="31.769">
-<failure/>
+<testsuite name="Cucumber" time="45.253" tests="1" skipped="0" failures="0" errors="0">
+<testcase classname="Feature to test the add, edit and delete options for the user" name="Verify the add user functionality - Example #1.1" time="45.047">
 <system-out><![CDATA[
 Given the user logins the page with valid credentials.......................passed
 Given the user is in user management page...................................passed
-When the user clicks on Add button..........................................undefined
-Then the user is in Add User Page...........................................skipped
-When user adds with parameters "<userRole>", "<status>", "<employeeName>", "<username>", "<password>", "<confirmPassword>".skipped
-And the user clicks on Save button..........................................skipped
-Then the user should be saved...............................................skipped
-And added to the records....................................................skipped
+When the user clicks on Add button..........................................passed
+Then the user is in Add User Page...........................................passed
+When user adds with parameters "Admin", "Enabled", "Virat Kohli", "Virat Kohli", "Bala@123", "Bala@123".passed
+And the user clicks on Save button..........................................passed
+Then the user with "Virat Kohli" should be saved and added to the records...passed
 ]]></system-out>
 </testcase>
 </testsuite>

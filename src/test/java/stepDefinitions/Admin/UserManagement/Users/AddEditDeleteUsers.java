@@ -6,23 +6,21 @@ import org.OrangeHRM_BDD.Pages.Admin.UserManagement.SearchUsersPage;
 import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
-import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
 
 public class AddEditDeleteUsers extends AddUsersPage {
     SearchUsersPage searchUsersPage = new SearchUsersPage();
+    SearchUsers searchUsers = new SearchUsers();
     JavascriptExecutor js = (JavascriptExecutor) driver;
     WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
 
-    @Given("the user is in user management page")
-    public void theUserIsInUserManagementPage() {
-        searchUsersPage.getSystemUserTitle();
-    }
 
     @When("the user clicks on Add button")
     public void the_user_clicks_on_add_button() {
+        searchUsers.theUserIsInUserManagementPage();
         searchUsersPage.addButton();
     }
 
@@ -47,9 +45,13 @@ public class AddEditDeleteUsers extends AddUsersPage {
     }
 
     @Then("the user with {string} should be saved and added to the records")
-    public void theUserWithShouldBeSavedAndAddedToTheRecords(String username) {
-        wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("div/h5")));
-        js.executeScript("arguments[0].scrollIntoView();", driver.findElement(By.xpath("(//div[text()='" + username + "'])[position() = 1]")));
+    public void theUserWithShouldBeSavedAndAddedToTheRecords(String username) throws InterruptedException {
+        // wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("div/h5")));
+        Thread.sleep(3000);
+        WebElement addeduserLocator = driver.findElement(By.xpath("(//div[text()='" + username + "'])[position() = 1]"));
+        js.executeScript("arguments[0].scrollIntoView();", addeduserLocator);
+        Thread.sleep(3000);
+        Assert.assertEquals(addeduserLocator.getText(),username);
     }
 }
 

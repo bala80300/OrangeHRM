@@ -9,6 +9,7 @@ import org.openqa.selenium.WebElement;
 public class SearchUsers extends SearchUsersPage {
     @Given("the user is in user management page")
     public void theUserIsInUserManagementPage() {
+        selectAdminMenu();
         Assert.assertEquals(getSystemUserTitle(),"System Users");
     }
 
