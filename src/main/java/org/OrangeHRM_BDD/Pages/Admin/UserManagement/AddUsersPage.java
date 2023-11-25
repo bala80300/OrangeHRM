@@ -32,7 +32,7 @@ public class AddUsersPage extends OrangeHRMBase {
     }
 
     public void enterUsernameForAdd(String username) {
-        WebElement usernameLocator = driver.findElement(By.xpath("(//input[@class='oxd-input oxd-input--active'])[2]"));
+        WebElement usernameLocator = driver.findElement(By.xpath("(//div/label[text()='Username']/following::input)[1]"));
         usernameLocator.sendKeys(username);
     }
 

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="Cucumber" time="111.189" tests="2" skipped="0" failures="1" errors="0">
-<testcase classname="Feature to test the add, edit and delete options for the user" name="Verify the add user functionality - Example #1.1" time="57.375">
+<testsuite name="Cucumber" time="0.221" tests="2" skipped="0" failures="0" errors="0">
+<testcase classname="Feature to test the add, edit and delete options for the user" name="Verify the add user functionality - Example #1.1" time="0.028">
 <system-out><![CDATA[
 Given the user logins the page with valid credentials.......................passed
 Given the user is in user management page...................................passed
@@ -11,52 +11,19 @@ And the user clicks on Save button in Add User Page.........................pass
 Then the user with "Bala S" should be saved and added to the records........passed
 ]]></system-out>
 </testcase>
-<testcase classname="Feature to test the add, edit and delete options for the user" name="Verify the edit user functionality - Example #1.1" time="53.496">
-<failure type="org.openqa.selenium.NoSuchElementException" message="no such element: Unable to locate element: {&quot;method&quot;:&quot;xpath&quot;,&quot;selector&quot;:&quot;(//div[text()='Bala S'])[position() = 1]&quot;}
-  (Session info: chrome=119.0.6045.160)
-For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#no-such-element-exception
-Build info: version: '4.15.0', revision: '1d14b5521b'
-System info: os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '11.0.16.1'
-Driver info: org.openqa.selenium.chrome.ChromeDriver
-Command: [3fae97ece8500c02144eb2145d7fa467, findElement {using=xpath, value=(//div[text()='Bala S'])[position() = 1]}]
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 119.0.6045.160, chrome: {chromedriverVersion: 119.0.6045.105 (38c72552c5e..., userDataDir: C:\Users\User\AppData\Local...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:57425}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:57425/devtoo..., se:cdpVersion: 119.0.6045.160, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
-Session ID: 3fae97ece8500c02144eb2145d7fa467">
-<![CDATA[org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {"method":"xpath","selector":"(//div[text()='Bala S'])[position() = 1]"}
-  (Session info: chrome=119.0.6045.160)
-For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#no-such-element-exception
-Build info: version: '4.15.0', revision: '1d14b5521b'
-System info: os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '11.0.16.1'
-Driver info: org.openqa.selenium.chrome.ChromeDriver
-Command: [3fae97ece8500c02144eb2145d7fa467, findElement {using=xpath, value=(//div[text()='Bala S'])[position() = 1]}]
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 119.0.6045.160, chrome: {chromedriverVersion: 119.0.6045.105 (38c72552c5e..., userDataDir: C:\Users\User\AppData\Local...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:57425}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:57425/devtoo..., se:cdpVersion: 119.0.6045.160, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
-Session ID: 3fae97ece8500c02144eb2145d7fa467
-	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
-	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
-	at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
-	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:490)
-	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:200)
-	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:133)
-	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:52)
-	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:191)
-	at org.openqa.selenium.remote.service.DriverCommandExecutor.invokeExecute(DriverCommandExecutor.java:200)
-	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:175)
-	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:607)
-	at org.openqa.selenium.remote.ElementLocation$ElementFinder$2.findElement(ElementLocation.java:165)
-	at org.openqa.selenium.remote.ElementLocation.findElement(ElementLocation.java:59)
-	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:364)
-	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:358)
-	at stepDefinitions.Admin.UserManagement.Users.AddEditDeleteUsers.theUserNavigatesToAlreadyCreatedUserWith(AddEditDeleteUsers.java:59)
-	at ✽.the user navigates to already created user with "Bala S"(file:///D:/OrangeHRM/src/test/resources/features/Admin/UserManagement/Users/add_edit_delete_users.feature:19)
-]]>
-</failure>
+<testcase classname="Feature to test the add, edit and delete options for the user" name="Verify the edit user and delete user functionality - Example #1.1" time="0.006">
 <system-out><![CDATA[
 Given the user logins the page with valid credentials.......................passed
-Given the user navigates to already created user with "Bala S"..............failed
-When the user clicks on edit button for the user with "Bala S"..............skipped
-Then the user is in Edit User Page..........................................skipped
-When user adds with parameters "ESS", "Disabled"............................skipped
-And the user clicks on Save button in Edit user page........................skipped
-Then the user with "Bala S" should be updated to the records with "ESS", "Disabled".skipped
+Given the user navigates to already created user with "Bala S"..............passed
+When the user clicks on edit button for the user with "Bala S"..............passed
+Then the user is in Edit User Page..........................................passed
+When user edits with parameters "ESS", "Disabled"...........................passed
+And the user clicks on Save button in Edit user page........................passed
+Then the user "Bala S" should be updated to the records with "ESS", "Disabled".passed
+And user notes the total records of the users...............................passed
+When the user clicks on delete button for the user with "Bala S"............passed
+And the user clicks YES on Are you sure? Dialog.............................passed
+Then the user will be deleted from the records..............................passed
 ]]></system-out>
 </testcase>
 </testsuite>

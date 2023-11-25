@@ -7,7 +7,7 @@ import java.time.Duration;
 
 public class OrangeHRMBase {
 
-    public static WebDriver driver = null;
+    public static WebDriver driver;
 
     public void initializeBrowser() {
         driver = new ChromeDriver();

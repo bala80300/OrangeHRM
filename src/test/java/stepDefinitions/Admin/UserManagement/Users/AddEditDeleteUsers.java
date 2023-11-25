@@ -7,6 +7,7 @@ import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
@@ -49,21 +50,20 @@ public class AddEditDeleteUsers extends AddUsersPage {
         // wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("div/h5")));
         Thread.sleep(3000);
         WebElement addeduserLocator = driver.findElement(By.xpath("(//div[text()='" + username + "'])[position() = 1]"));
-        js.executeScript("arguments[0].scrollIntoView();", addeduserLocator);
-        Thread.sleep(3000);
         Assert.assertEquals(addeduserLocator.getText(),username);
     }
 
     @Given("the user navigates to already created user with {string}")
     public void theUserNavigatesToAlreadyCreatedUserWith(String username) {
+        searchUsersPage.selectAdminMenu();
+        searchUsersPage.getSystemUserTitle();
         WebElement addeduserLocator = driver.findElement(By.xpath("(//div[text()='" + username + "'])[position() = 1]"));
-        js.executeScript("arguments[0].scrollIntoView();", addeduserLocator);
+        Assert.assertEquals(username,addeduserLocator.getText());
     }
 
     @When("the user clicks on edit button for the user with {string}")
     public void theUserClicksOnEditButtonForTheUserWith(String username) {
-        WebElement addeduserLocator = driver.findElement(By.xpath("(//div[text()='" + username + "']/following::i)[position() = 2]"));
-        addeduserLocator.click();
+        searchUsersPage.editButton(username);
     }
 
     @Then("the user is in Edit User Page")
@@ -72,10 +72,10 @@ public class AddEditDeleteUsers extends AddUsersPage {
         Assert.assertEquals(editUserTitle,"Edit User");
     }
 
-    @When("user adds with parameters {string}, {string}")
-    public void userAddsWithParameters(String userRole, String status) {
-        searchUsersPage.userRoleDropdown(userRole);
-        searchUsersPage.statusDropdown(status);
+    @When("user edits with parameters {string}, {string}")
+    public void userEditsWithParameters(String updatedUserrole, String updatedStatus) {
+        searchUsersPage.userRoleDropdown(updatedUserrole);
+        searchUsersPage.statusDropdown(updatedStatus);
     }
 
     @And("the user clicks on Save button in Edit user page")
@@ -83,12 +83,31 @@ public class AddEditDeleteUsers extends AddUsersPage {
         saveButton();
     }
 
-    @Then("the user with {string} should be updated to the records with {string}, {string}")
-    public void theUserWithShouldBeEditedAndUpdatedToTheRecordsWith(String username, String userRole, String status) {
-        WebElement editedUserRoleLocator = driver.findElement(By.xpath("(//div[text()='"+username+"']/following::div)[position()=2]"));
-        WebElement editedStatusLocator = driver.findElement(By.xpath("(//div[text()='"+username+"']/following::div)[position()=6]"));
-        Assert.assertEquals(editedUserRoleLocator,userRole);
-        Assert.assertEquals(editedStatusLocator,status);
+    @Then("the user {string} should be updated to the records with {string}, {string}")
+    public void theUserShouldBeUpdatedToTheRecordsWith(String username, String updatedUserRole, String updatedStatus) {
+        wait.until(ExpectedConditions.visibilityOfElementLocated((By.xpath("//div/h5"))));
+
+        WebElement updatedUserRoleLocator = driver.findElement(By.xpath("(//div[text()='"+username+"']/following::div)[position()=2]"));
+        WebElement updatedStatusLocator = driver.findElement(By.xpath("(//div[text()='"+username+"']/following::div)[position()=6]"));
+
+        Assert.assertEquals(updatedUserRoleLocator.getText(),updatedUserRole);
+        Assert.assertEquals(updatedStatusLocator.getText(),updatedStatus);
+    }
+
+    @When("the user clicks on delete button for the user with {string}")
+    public void theUserClicksOnDeleteButtonForTheUserWith(String username) {
+        searchUsersPage.deleteButton(username);
+    }
+
+    @And("the user clicks YES on Are you sure? Dialog")
+    public void theUserClicksYESOnAreYouSureDialog() {
+        searchUsersPage.yesInconfirmationDialogButton();
+        wait.until(ExpectedConditions.visibilityOfElementLocated((By.xpath("//div/h5"))));
+    }
+
+    @Then("the user will be deleted from the records")
+    public void theUserWillBeDeletedFromTheRecords() {
+        searchUsers.userNotesTheTotalRecordsOfTheUsers();
     }
 }
 

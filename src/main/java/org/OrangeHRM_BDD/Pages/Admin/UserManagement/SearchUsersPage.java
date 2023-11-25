@@ -8,6 +8,7 @@ public class SearchUsersPage extends OrangeHRMBase {
     public void selectAdminMenu() {
         driver.findElement(By.xpath("//span[text()='Admin']")).click();
     }
+
     public String getSystemUserTitle() {
         return driver.findElement(By.xpath("//div/h5")).getText();
     }
@@ -22,7 +23,7 @@ public class SearchUsersPage extends OrangeHRMBase {
     }
 
     public void enterUsernameForSearch(String username) {
-        WebElement usernameLocator = driver.findElement(By.xpath("(//input[@class='oxd-input oxd-input--active'])[2]"));
+        WebElement usernameLocator = driver.findElement(By.xpath("(//div/label[text()='Username']/following::input)[1]"));
         usernameLocator.sendKeys(username);
     }
 
@@ -60,5 +61,18 @@ public class SearchUsersPage extends OrangeHRMBase {
     public void addButton() {
         driver.findElement(By.xpath(" //button[text()=' Add ']")).click();
     }
-
+    public void editButton(String username) {
+        WebElement editButtonLocator = driver.findElement(By.xpath("(//div[text()='" + username + "']/following::i)[position() = 2]"));
+        editButtonLocator.click();
+    }
+    public void deleteButton(String username) {
+        WebElement deleteButtonLocator = driver.findElement(By.xpath("(//div[text()='" + username + "']/following::i)[position() = 1]"));
+        deleteButtonLocator.click();
+    }
+    public void yesInconfirmationDialogButton() {
+        driver.findElement(By.xpath("//button[text()=' Yes, Delete ']")).click();
+    }
+    public void noInconfirmationDialogButton() {
+        driver.findElement(By.xpath("//button[text()=' No, Cancel ']")).click();
+    }
 }
