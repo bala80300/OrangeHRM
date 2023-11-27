@@ -1,4 +1,4 @@
-package org.OrangeHRM_BDD.Pages.Admin.UserManagement;
+package org.OrangeHRM_BDD.Pages.Admin.UserManagement.Users;
 
 import org.OrangeHRM_BDD.testBase.OrangeHRMBase;
 import org.openqa.selenium.By;

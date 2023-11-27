@@ -1,13 +1,10 @@
-package org.OrangeHRM_BDD.Pages.Admin.UserManagement;
+package org.OrangeHRM_BDD.Pages.Admin.UserManagement.Users;
 
 import org.OrangeHRM_BDD.testBase.OrangeHRMBase;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 
 public class SearchUsersPage extends OrangeHRMBase {
-    public void selectAdminMenu() {
-        driver.findElement(By.xpath("//span[text()='Admin']")).click();
-    }
 
     public String getSystemUserTitle() {
         return driver.findElement(By.xpath("//div/h5")).getText();

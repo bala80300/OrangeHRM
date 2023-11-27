@@ -1,15 +1,17 @@
 package stepDefinitions.Admin.UserManagement.Users;
 
 import io.cucumber.java.en.*;
-import org.OrangeHRM_BDD.Pages.Admin.UserManagement.SearchUsersPage;
+import org.OrangeHRM_BDD.Pages.Admin.UserManagement.Users.SearchUsersPage;
+import org.OrangeHRM_BDD.Pages.Modules.Admin;
 import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 
 public class SearchUsers extends SearchUsersPage {
+    Admin adminPage = new Admin();
     @Given("the user is in user management page")
     public void theUserIsInUserManagementPage() {
-        selectAdminMenu();
+        adminPage.selectAdminMenu();
         Assert.assertEquals(getSystemUserTitle(),"System Users");
     }
 

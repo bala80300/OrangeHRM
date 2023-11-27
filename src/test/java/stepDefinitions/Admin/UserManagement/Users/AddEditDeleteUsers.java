@@ -1,11 +1,11 @@
 package stepDefinitions.Admin.UserManagement.Users;
 
 import io.cucumber.java.en.*;
-import org.OrangeHRM_BDD.Pages.Admin.UserManagement.AddUsersPage;
-import org.OrangeHRM_BDD.Pages.Admin.UserManagement.SearchUsersPage;
+import org.OrangeHRM_BDD.Pages.Admin.UserManagement.Users.AddUsersPage;
+import org.OrangeHRM_BDD.Pages.Admin.UserManagement.Users.SearchUsersPage;
+import org.OrangeHRM_BDD.Pages.Modules.Admin;
 import org.junit.Assert;
 import org.openqa.selenium.By;
-import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -13,9 +13,9 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import java.time.Duration;
 
 public class AddEditDeleteUsers extends AddUsersPage {
+    Admin adminpage = new Admin();
     SearchUsersPage searchUsersPage = new SearchUsersPage();
     SearchUsers searchUsers = new SearchUsers();
-    JavascriptExecutor js = (JavascriptExecutor) driver;
     WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
 
 
@@ -55,7 +55,7 @@ public class AddEditDeleteUsers extends AddUsersPage {
 
     @Given("the user navigates to already created user with {string}")
     public void theUserNavigatesToAlreadyCreatedUserWith(String username) {
-        searchUsersPage.selectAdminMenu();
+        adminpage.selectAdminMenu();
         searchUsersPage.getSystemUserTitle();
         WebElement addeduserLocator = driver.findElement(By.xpath("(//div[text()='" + username + "'])[position() = 1]"));
         Assert.assertEquals(username,addeduserLocator.getText());
