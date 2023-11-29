@@ -13,6 +13,9 @@ public class JobTitlesPage extends OrangeHRMBase {
     public void addButton() {
         driver.findElement(By.xpath("//button[text()=' Add ']")).click();
     }
+    public String getaddJobTitleTitle() {
+        return driver.findElement(By.xpath("//div/h6[text()='Add Job Title']")).getText();
+    }
 
     public void editButton(String jobTitleName) {
         driver.findElement(By.xpath("(//div[text()='" + jobTitleName + "']/following::i)[position() = 2]")).click();
@@ -41,26 +44,26 @@ public class JobTitlesPage extends OrangeHRMBase {
             jobTitleFieldLocator.sendKeys(jobTitleName);
         }
     }
-    public void jobSpecificationField(String jobSpecification) {
-        WebElement jobSpecificationFieldLocator = driver.findElement(By.xpath("//div/textarea[@placeholder='Type description here']"));
-        if(jobSpecificationFieldLocator.getText()!="") {
-            jobSpecificationFieldLocator.sendKeys(Keys.CONTROL+"a");
-            jobSpecificationFieldLocator.sendKeys(Keys.DELETE);
-            jobSpecificationFieldLocator.sendKeys(jobSpecification);
+    public void jobDescriptionField(String jobDescription) {
+        WebElement jobDescriptiontionFieldLocator = driver.findElement(By.xpath("//div/textarea[@placeholder='Type description here']"));
+        if(jobDescriptiontionFieldLocator.getText()!="") {
+            jobDescriptiontionFieldLocator.sendKeys(Keys.CONTROL+"a");
+            jobDescriptiontionFieldLocator.sendKeys(Keys.DELETE);
+            jobDescriptiontionFieldLocator.sendKeys(jobDescription);
         }
         else {
-            jobSpecificationFieldLocator.sendKeys(jobSpecification);
+            jobDescriptiontionFieldLocator.sendKeys(jobDescription);
         }
     }
-    public void noteField(String notes) {
+    public void noteField(String note) {
         WebElement noteFieldLocator = driver.findElement(By.xpath("//div/textarea[@placeholder='Add note']"));
         if(noteFieldLocator.getText()!="") {
             noteFieldLocator.sendKeys(Keys.CONTROL+"a");
             noteFieldLocator.sendKeys(Keys.DELETE);
-            noteFieldLocator.sendKeys(notes);
+            noteFieldLocator.sendKeys(note);
         }
         else {
-            noteFieldLocator.sendKeys(notes);
+            noteFieldLocator.sendKeys(note);
         }
     }
     public void saveButton() {

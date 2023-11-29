@@ -2,6 +2,7 @@ package org.OrangeHRM_BDD.Pages.Admin.UserManagement.Users;
 
 import org.OrangeHRM_BDD.testBase.OrangeHRMBase;
 import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 
 public class AddUsersPage extends OrangeHRMBase {

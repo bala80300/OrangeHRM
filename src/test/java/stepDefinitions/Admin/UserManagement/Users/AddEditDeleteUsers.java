@@ -16,11 +16,12 @@ public class AddEditDeleteUsers extends AddUsersPage {
     Admin adminpage = new Admin();
     SearchUsersPage searchUsersPage = new SearchUsersPage();
     SearchUsers searchUsers = new SearchUsers();
+    AddUsersPage addUsersPage = new AddUsersPage();
     WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
 
-
-    @When("the user clicks on Add button")
-    public void the_user_clicks_on_add_button() {
+    //Adding the user
+    @When("the user clicks on Add button in Search Users page")
+    public void the_user_clicks_on_add_button_in_Search_Users_page() {
         searchUsers.theUserIsInUserManagementPage();
         searchUsersPage.addButton();
     }
@@ -45,20 +46,21 @@ public class AddEditDeleteUsers extends AddUsersPage {
         saveButton();
     }
 
-    @Then("the user with {string} should be saved and added to the records")
+    @Then("the user with {string} should be saved and added to the user records")
     public void theUserWithShouldBeSavedAndAddedToTheRecords(String username) throws InterruptedException {
         // wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("div/h5")));
         Thread.sleep(3000);
         WebElement addeduserLocator = driver.findElement(By.xpath("(//div[text()='" + username + "'])[position() = 1]"));
-        Assert.assertEquals(addeduserLocator.getText(),username);
+        Assert.assertEquals(addeduserLocator.getText(), username);
     }
 
+    //Editing the user
     @Given("the user navigates to already created user with {string}")
     public void theUserNavigatesToAlreadyCreatedUserWith(String username) {
         adminpage.selectAdminMenu();
         searchUsersPage.getSystemUserTitle();
         WebElement addeduserLocator = driver.findElement(By.xpath("(//div[text()='" + username + "'])[position() = 1]"));
-        Assert.assertEquals(username,addeduserLocator.getText());
+        Assert.assertEquals(username, addeduserLocator.getText());
     }
 
     @When("the user clicks on edit button for the user with {string}")
@@ -69,13 +71,13 @@ public class AddEditDeleteUsers extends AddUsersPage {
     @Then("the user is in Edit User Page")
     public void theUserIsInEditUserPage() {
         String editUserTitle = driver.findElement(By.xpath("//div/h6")).getText();
-        Assert.assertEquals(editUserTitle,"Edit User");
+        Assert.assertEquals(editUserTitle, "Edit User");
     }
 
     @When("user edits with parameters {string}, {string}")
     public void userEditsWithParameters(String updatedUserrole, String updatedStatus) {
-        searchUsersPage.userRoleDropdown(updatedUserrole);
-        searchUsersPage.statusDropdown(updatedStatus);
+        addUsersPage.userRoleDropdown(updatedUserrole);
+        addUsersPage.statusDropdown(updatedStatus);
     }
 
     @And("the user clicks on Save button in Edit user page")
@@ -83,17 +85,18 @@ public class AddEditDeleteUsers extends AddUsersPage {
         saveButton();
     }
 
-    @Then("the user {string} should be updated to the records with {string}, {string}")
+    @Then("the {string} should be updated to the user records with {string}, {string}")
     public void theUserShouldBeUpdatedToTheRecordsWith(String username, String updatedUserRole, String updatedStatus) {
         wait.until(ExpectedConditions.visibilityOfElementLocated((By.xpath("//div/h5"))));
 
-        WebElement updatedUserRoleLocator = driver.findElement(By.xpath("(//div[text()='"+username+"']/following::div)[position()=2]"));
-        WebElement updatedStatusLocator = driver.findElement(By.xpath("(//div[text()='"+username+"']/following::div)[position()=6]"));
+        WebElement updatedUserRoleLocator = driver.findElement(By.xpath("(//div[text()='" + username + "']/following::div)[position()=2]"));
+        WebElement updatedStatusLocator = driver.findElement(By.xpath("(//div[text()='" + username + "']/following::div)[position()=6]"));
 
-        Assert.assertEquals(updatedUserRoleLocator.getText(),updatedUserRole);
-        Assert.assertEquals(updatedStatusLocator.getText(),updatedStatus);
+        Assert.assertEquals(updatedUserRoleLocator.getText(), updatedUserRole);
+        Assert.assertEquals(updatedStatusLocator.getText(), updatedStatus);
     }
 
+    //Deleting the user
     @When("the user clicks on delete button for the user with {string}")
     public void theUserClicksOnDeleteButtonForTheUserWith(String username) {
         searchUsersPage.deleteButton(username);
@@ -105,7 +108,7 @@ public class AddEditDeleteUsers extends AddUsersPage {
         wait.until(ExpectedConditions.visibilityOfElementLocated((By.xpath("//div/h5"))));
     }
 
-    @Then("the user will be deleted from the records")
+    @Then("the user will be deleted from the user records")
     public void theUserWillBeDeletedFromTheRecords() {
         searchUsers.userNotesTheTotalRecordsOfTheUsers();
     }
