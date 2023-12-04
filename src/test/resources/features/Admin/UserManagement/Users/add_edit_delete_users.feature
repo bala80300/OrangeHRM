@@ -4,6 +4,7 @@ Feature: Feature to test the add, edit and delete options for the user
   Background:
     Given the user logins the page with valid credentials
 
+  @add_user
   Scenario Outline: Verify the add user functionality
     Given the user is in user management page
     When the user clicks on Add button in Search Users page
@@ -15,6 +16,7 @@ Feature: Feature to test the add, edit and delete options for the user
       | userRole | status  | employeeName | username | password | confirmPassword |
       | Admin    | Enabled | 123 Collings | Bala S   | Bala@123 | Bala@123        |
 
+  @edit_and_delete_user
   Scenario Outline: Verify the edit user and delete user functionality
     #edit functionality
     Given the user navigates to already created user with "<username>"

@@ -1,48 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="Cucumber" time="81.05" tests="2" skipped="0" failures="2" errors="0">
-<testcase classname="Feature to test the add, edit and delete options for the job titles" name="Verify the add job title functionality - Example #1.1" time="38.049">
-<failure/>
+<testsuite name="Cucumber" time="50.098" tests="1" skipped="0" failures="0" errors="0">
+<testcase classname="Feature to test the add, edit and delete options for the job titles" name="Verify the add job title functionality - Example #1.1" time="49.821">
 <system-out><![CDATA[
 Given the user logins the page with valid credentials.......................passed
-Given the user is in job titles page........................................undefined
-When the user clicks on Add button in job Titles page.......................skipped
-Then the user is in Add Job Title Page......................................skipped
-When user adds with parameters "Data Analyst", "Analysing the data for projects", "Analysing the data for projects".skipped
-And the user clicks on Save button in Add Job Title Page....................skipped
-Then the user with "Data Analyst" should be saved and added to the records..skipped
-]]></system-out>
-</testcase>
-<testcase classname="Feature to test the add, edit and delete options for the job titles" name="Verify the edit user and delete job titles functionality - Example #1.1" time="42.446">
-<failure type="org.openqa.selenium.NoSuchElementException" message="Unable to find element with locator By.xpath: (//div[text()='Bala S'])[position() = 1]
-For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#no-such-element-exception
-Build info: version: '4.15.0', revision: '1d14b5521b'
-System info: os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '11.0.16.1'
-Driver info: driver.version: RemoteWebDriver">
-<![CDATA[org.openqa.selenium.NoSuchElementException: Unable to find element with locator By.xpath: (//div[text()='Bala S'])[position() = 1]
-For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#no-such-element-exception
-Build info: version: '4.15.0', revision: '1d14b5521b'
-System info: os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '11.0.16.1'
-Driver info: driver.version: RemoteWebDriver
-	at org.openqa.selenium.remote.ElementLocation$ElementFinder$2.findElement(ElementLocation.java:168)
-	at org.openqa.selenium.remote.ElementLocation.findElement(ElementLocation.java:59)
-	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:364)
-	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:358)
-	at stepDefinitions.Admin.UserManagement.Users.AddEditDeleteUsers.theUserNavigatesToAlreadyCreatedUserWith(AddEditDeleteUsers.java:62)
-	at ✽.the user navigates to already created user with "Bala S"(file:///D:/OrangeHRM/src/test/resources/features/Admin/Jobs/add_Edit_delete_jobtitles.feature:20)
-]]>
-</failure>
-<system-out><![CDATA[
-Given the user logins the page with valid credentials.......................passed
-Given the user navigates to already created user with "Bala S"..............failed
-When the user clicks on edit button for the user with "Bala S"..............skipped
-Then the user is in Edit User Page..........................................skipped
-When user edits with parameters "ESS", "Disabled"...........................skipped
-And the user clicks on Save button in Edit user page........................skipped
-Then the user "Bala S" should be updated to the records with "ESS", "Disabled".skipped
-And user notes the total records of the users...............................skipped
-When the user clicks on delete button for the user with "Bala S"............skipped
-And the user clicks YES on Are you sure? Dialog.............................skipped
-Then the user will be deleted from the records..............................skipped
+Given the user is in job titles page........................................passed
+When the user clicks on Add button in job Titles page.......................passed
+Then the user is in Add Job Title Page......................................passed
+When user adds with parameters "Data Analyst", "Analysing the data for projects", "Analysing the data for projects".passed
+And the user clicks on Save button in Add Job Title Page....................passed
+Then the newly added "Data Analyst" and "Analysing the data for projects" should be saved and added to the Job Titles records.passed
 ]]></system-out>
 </testcase>
 </testsuite>
