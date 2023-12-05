@@ -22,7 +22,7 @@ Feature: Feature to test the add, edit and delete options for the job titles
     Given the user navigates to already created job title with "<jobTitle>"
     When the user clicks on edit button for the user with "<jobTitle>"
     Then the user is in Edit Job Title page
-    When user edits with parameters "<updatedJobTitle>", "<updatedJobDescription>"
+    When user edits with parameters "<updatedJobTitle>", "<updatedJobDescription>", "<updatedNote>"
     And the user clicks on Save button in Edit Job Title page
     Then the records should be updated as "<updatedJobTitle>", "<updatedJobDescription>"
     #delete functionality
@@ -31,5 +31,5 @@ Feature: Feature to test the add, edit and delete options for the job titles
     And the user clicks YES on Are you sure? Dialog
     Then the job Title will be deleted from the records
     Examples:
-      | jobTitle | updatedJobTitle | updatedJobDescription |
-      | Bala S   | ESS             | Disabled      |
+      | jobTitle     | updatedJobTitle | updatedJobDescription              | updatedNote                        |
+      | Data Analyst | Data Scientist  | Making descisions on analysed data | Making descisions on analysed data |

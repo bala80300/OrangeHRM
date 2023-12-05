@@ -19,17 +19,17 @@ Feature: Feature to test the add, edit and delete options for the job titles
   @edit_and_delete_jobtitle
   Scenario Outline: Verify the edit user and delete job titles functionality
     #edit functionality
-    Given the user navigates to already created user with "<username>"
-    When the user clicks on edit button for the user with "<username>"
-    Then the user is in Edit User Page
-    When user edits with parameters "<updatedUserRole>", "<updatedStatus>"
-    And the user clicks on Save button in Edit user page
-    Then the user "<username>" should be updated to the records with "<updatedUserRole>", "<updatedStatus>"
+    Given the user navigates to already created job title with "<jobTitle>"
+    When the user clicks on edit button for the user with "<jobTitle>"
+    Then the user is in Edit Job Title page
+    When user edits with parameters "<updatedJobTitle>", "<updatedJobDescription>", "<updatedNote>"
+    And the user clicks on Save button in Edit Job Title page
+    Then the records should be updated as "<updatedJobTitle>", "<updatedJobDescription>"
     #delete functionality
-    And user notes the total records of the users
-    When the user clicks on delete button for the user with "<username>"
+    And user notes the total records of the Job Titles
+    When the user clicks on delete button for the user with "<jobTitle>"
     And the user clicks YES on Are you sure? Dialog
-    Then the user will be deleted from the records
+    Then the job Title will be deleted from the records
     Examples:
-      | username | updatedUserRole | updatedStatus |
-      | Bala S   | ESS             | Disabled      |
+      | jobTitle     | updatedJobTitle | updatedJobDescription              | updatedNote                        |
+      | Data Analyst | Data Scientist  | Making descisions on analysed data | Making descisions on analysed data |

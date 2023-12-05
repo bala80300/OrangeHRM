@@ -1,14 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="Cucumber" time="50.098" tests="1" skipped="0" failures="0" errors="0">
-<testcase classname="Feature to test the add, edit and delete options for the job titles" name="Verify the add job title functionality - Example #1.1" time="49.821">
+<testsuite name="Cucumber" time="0.938" tests="1" skipped="0" failures="1" errors="0">
+<testcase classname="Feature to test the add, edit and delete options for the job titles" name="Verify the edit user and delete job titles functionality - Example #1.1" time="0.359">
+<failure/>
 <system-out><![CDATA[
 Given the user logins the page with valid credentials.......................passed
-Given the user is in job titles page........................................passed
-When the user clicks on Add button in job Titles page.......................passed
-Then the user is in Add Job Title Page......................................passed
-When user adds with parameters "Data Analyst", "Analysing the data for projects", "Analysing the data for projects".passed
-And the user clicks on Save button in Add Job Title Page....................passed
-Then the newly added "Data Analyst" and "Analysing the data for projects" should be saved and added to the Job Titles records.passed
+Given the user navigates to already created job title with "Data Analyst"...undefined
+When the user clicks on edit button for the user with "Data Analyst"........skipped
+Then the user is in Edit Job Title page.....................................skipped
+When user edits with parameters "Data Scientist", "Making descisions on analysed data", "Making descisions on analysed data".skipped
+And the user clicks on Save button in Edit Job Title page...................skipped
+Then the records should be updated as "Data Scientist", "Making descisions on analysed data".skipped
+And user notes the total records of the Job Titles..........................skipped
+When the user clicks on delete button for the user with "Data Analyst"......skipped
+And the user clicks YES on Are you sure? Dialog.............................skipped
+Then the job Title will be deleted from the records.........................skipped
 ]]></system-out>
 </testcase>
 </testsuite>
