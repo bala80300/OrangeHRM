@@ -1,19 +1,47 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="Cucumber" time="0.938" tests="1" skipped="0" failures="1" errors="0">
-<testcase classname="Feature to test the add, edit and delete options for the job titles" name="Verify the edit user and delete job titles functionality - Example #1.1" time="0.359">
-<failure/>
+<testsuite name="Cucumber" time="73.086" tests="2" skipped="0" failures="1" errors="0">
+<testcase classname="Feature to test the add, edit and delete options for the job titles" name="Verify the add job title functionality - Example #1.1" time="26.624">
 <system-out><![CDATA[
 Given the user logins the page with valid credentials.......................passed
-Given the user navigates to already created job title with "Data Analyst"...undefined
-When the user clicks on edit button for the user with "Data Analyst"........skipped
-Then the user is in Edit Job Title page.....................................skipped
-When user edits with parameters "Data Scientist", "Making descisions on analysed data", "Making descisions on analysed data".skipped
-And the user clicks on Save button in Edit Job Title page...................skipped
-Then the records should be updated as "Data Scientist", "Making descisions on analysed data".skipped
+Given the user is in job titles page........................................passed
+When the user clicks on Add button in job Titles page.......................passed
+Then the user is in Add Job Title Page......................................passed
+When user adds with parameters "Data Analyst", "Analysing the data for projects", "Analysing the data for projects".passed
+And the user clicks on Save button in Add Job Title Page....................passed
+Then the newly added "Data Analyst" and "Analysing the data for projects" should be saved and added to the Job Titles records.passed
+]]></system-out>
+</testcase>
+<testcase classname="Feature to test the add, edit and delete options for the job titles" name="Verify the edit user and delete job titles functionality - Example #1.1" time="46.193">
+<failure type="org.openqa.selenium.TimeoutException" message="Expected condition failed: waiting for visibility of element located by By.xpath: //div/h5 (tried for 30 second(s) with 500 milliseconds interval)
+Build info: version: '4.15.0', revision: '1d14b5521b'
+System info: os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '11.0.16.1'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 119.0.6045.202, chrome: {chromedriverVersion: 119.0.6045.105 (38c72552c5e..., userDataDir: C:\Users\User\AppData\Local...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:50634}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:50634/devtoo..., se:cdpVersion: 119.0.6045.202, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: bbef6ee79f96c1745e284f343ac509e3">
+<![CDATA[org.openqa.selenium.TimeoutException: Expected condition failed: waiting for visibility of element located by By.xpath: //div/h5 (tried for 30 second(s) with 500 milliseconds interval)
+Build info: version: '4.15.0', revision: '1d14b5521b'
+System info: os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '11.0.16.1'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 119.0.6045.202, chrome: {chromedriverVersion: 119.0.6045.105 (38c72552c5e..., userDataDir: C:\Users\User\AppData\Local...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:50634}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:50634/devtoo..., se:cdpVersion: 119.0.6045.202, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: bbef6ee79f96c1745e284f343ac509e3
+	at org.openqa.selenium.support.ui.WebDriverWait.timeoutException(WebDriverWait.java:84)
+	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:229)
+	at stepDefinitions.Admin.Jobs.JobTitles.the_records_should_be_updated_as(JobTitles.java:98)
+	at ✽.the records should be updated as "Data Scientist", "Making decisions on analysed data"(file:///D:/OrangeHRM/src/test/resources/features/Admin/Jobs/add_Edit_delete_jobtitles.feature:27)
+]]>
+</failure>
+<system-out><![CDATA[
+Given the user logins the page with valid credentials.......................passed
+Given the user navigates to already created job title with "Data Analyst"...passed
+When the user clicks on edit button for the user with "Data Analyst"........passed
+Then the user is in Edit Job Title page.....................................passed
+When user edits with parameters "Data Scientist", "Making decisions on analysed data", "Making decisions on analysed data".passed
+And the user clicks on Save button in Edit Job Title page...................passed
+Then the records should be updated as "Data Scientist", "Making decisions on analysed data".failed
 And user notes the total records of the Job Titles..........................skipped
 When the user clicks on delete button for the user with "Data Analyst"......skipped
 And the user clicks YES on Are you sure? Dialog.............................skipped
-Then the job Title will be deleted from the records.........................skipped
+Then the job Title "Data Analyst" will be deleted from the records..........skipped
 ]]></system-out>
 </testcase>
 </testsuite>

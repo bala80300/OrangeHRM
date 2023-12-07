@@ -9,9 +9,9 @@ import io.cucumber.junit.CucumberOptions;
 @CucumberOptions(
         features = "src/test/resources/features",
         glue = {"stepDefinitions", "hooks"},
-        tags = "@edit_and_delete_jobtitle",
+        tags = "@jobtitle",
         monochrome = true,
-        dryRun = true,
+        dryRun = false,
         plugin = {
                 "pretty",
                 "html:target/cucumber-reports/cucumber.html",

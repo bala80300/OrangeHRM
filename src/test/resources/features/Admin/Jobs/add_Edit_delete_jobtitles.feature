@@ -29,7 +29,7 @@ Feature: Feature to test the add, edit and delete options for the job titles
     And user notes the total records of the Job Titles
     When the user clicks on delete button for the user with "<jobTitle>"
     And the user clicks YES on Are you sure? Dialog
-    Then the job Title will be deleted from the records
+    Then the job Title "<jobTitle>" will be deleted from the records
     Examples:
-      | jobTitle     | updatedJobTitle | updatedJobDescription              | updatedNote                        |
-      | Data Analyst | Data Scientist  | Making descisions on analysed data | Making descisions on analysed data |
+      | jobTitle     | updatedJobTitle | updatedJobDescription             | updatedNote                       |
+      | Data Analyst | Data Scientist  | Making decisions on analysed data | Making decisions on analysed data |

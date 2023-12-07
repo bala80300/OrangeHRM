@@ -6,12 +6,18 @@ import org.OrangeHRM_BDD.Pages.Admin.Job.JobTitlesPage;
 import org.OrangeHRM_BDD.Pages.Modules.Admin;
 import org.junit.Assert;
 import org.openqa.selenium.By;
+import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
+import java.time.Duration;
 
 
 public class JobTitles extends JobTitlesPage {
     JobDropdownsPage jobDropdownsPage = new JobDropdownsPage();
     Admin admin = new Admin();
+    WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
 
     //Adding the job title
     @Given("the user is in job titles page")
@@ -40,7 +46,7 @@ public class JobTitles extends JobTitlesPage {
         noteField(note);
     }
 
-    @When("the user clicks on Save button in Add Job Title Page")
+    @And("the user clicks on Save button in Add Job Title Page")
     public void the_user_clicks_on_save_button_in_add_job_title_page() {
         saveButton();
     }
@@ -58,40 +64,57 @@ public class JobTitles extends JobTitlesPage {
     @Given("the user navigates to already created job title with {string}")
     public void the_user_navigates_to_already_created_job_title_with(String jobTitleName) {
         admin.selectAdminMenu();
+        jobDropdownsPage.job();
+        jobDropdownsPage.jobTitles();
         getjobTitlesTitle();
-        jobTitleField(jobTitleName);
-        WebElement jobTitleFieldLocator = driver.findElement(By.xpath("(//div/label[text()='" + jobTitleName + "']/following::div/input)[position()=1]"));
-        Assert.assertEquals(jobTitleName,jobTitleFieldLocator.getText());
+        WebElement jobTitleFieldLocator = driver.findElement(By.xpath("//div[text()='" + jobTitleName + "']"));
+        Assert.assertEquals(jobTitleName, jobTitleFieldLocator.getText());
     }
 
     @Then("the user is in Edit Job Title page")
     public void the_user_is_in_edit_job_title_page() {
-
+        String editJobTitleLocator = driver.findElement(By.xpath("//div/h6[text()='Edit Job Title']")).getText();
+        Assert.assertEquals("Edit Job Title", editJobTitleLocator);
     }
 
     @When("user edits with parameters {string}, {string}, {string}")
-    public void user_edits_with_parameters(String string, String string2, String string3) {
+    public void user_edits_with_parameters(String updatedJobTitle, String updatedJobDescription, String updatedNote) {
+        updatedJobTitleField(updatedJobTitle);
+        updatedJobDescriptionField(updatedJobDescription);
+        updatedNoteField(updatedNote);
 
     }
 
-    @When("the user clicks on Save button in Edit Job Title page")
+    @And("the user clicks on Save button in Edit Job Title page")
     public void the_user_clicks_on_save_button_in_edit_job_title_page() {
-
+        saveButton();
     }
 
     @Then("the records should be updated as {string}, {string}")
-    public void the_records_should_be_updated_as(String string, String string2) {
+    public void the_records_should_be_updated_as(String updatedJobTitle, String updatedJobDescription) {
+        wait.until(ExpectedConditions.visibilityOfElementLocated((By.xpath("//div/h5"))));
 
+        WebElement updatedJobTitleField = driver.findElement(By.xpath("//div[text()='" + updatedJobTitle + "']"));
+        WebElement updatedJobDescriptionField = driver.findElement(By.xpath("//div[text()='" + updatedJobTitle + "']/following::span[text()[contains(.,'" + updatedJobDescription + "')]]"));
+
+        Assert.assertEquals(updatedJobTitle, updatedJobTitleField.getText());
+        Assert.assertEquals(updatedJobDescription, updatedJobDescriptionField.getText());
     }
 
-    @Then("user notes the total records of the Job Titles")
+    //deleting the job
+    @And("user notes the total records of the Job Titles")
     public void user_notes_the_total_records_of_the_job_titles() {
-
+        System.out.println("Jobs before deletion :" + totalJobRecords());
     }
 
-    @Then("the job Title will be deleted from the records")
-    public void the_job_title_will_be_deleted_from_the_records() {
 
+    @Then("the job Title {string} will be deleted from the records")
+    public void theJobTitleWillBeDeletedFromTheRecords(String jobTitleName) {
+        System.out.println("Jobs After deletion :" + totalJobRecords());
+        try {
+            driver.findElement(By.xpath("//div[text()='" + jobTitleName + "']"));
+        } catch (NoSuchElementException e) {
+            System.out.println("Job title" + jobTitleName + "is deleted");
+        }
     }
-
 }

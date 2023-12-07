@@ -10,9 +10,14 @@ public class JobTitlesPage extends OrangeHRMBase {
         return driver.findElement(By.xpath("//div/h6[text()='Job Titles']")).getText();
     }
 
+    public String totalJobRecords() {
+        return driver.findElement(By.xpath("(//span[@class='oxd-text oxd-text--span'])[position()=1]")).getText();
+    }
+
     public void addButton() {
         driver.findElement(By.xpath("//button[text()=' Add ']")).click();
     }
+
     public String getaddJobTitleTitle() {
         return driver.findElement(By.xpath("//div/h6[text()='Add Job Title']")).getText();
     }
@@ -35,41 +40,46 @@ public class JobTitlesPage extends OrangeHRMBase {
 
     public void jobTitleField(String jobTitleName) {
         WebElement jobTitleFieldLocator = driver.findElement(By.xpath("(//div/label[text()='Job Title']/following::div/input)[position()=1]"));
-        if(jobTitleFieldLocator.getText()!="") {
-         jobTitleFieldLocator.sendKeys(Keys.CONTROL+"a");
-         jobTitleFieldLocator.sendKeys(Keys.DELETE);
-         jobTitleFieldLocator.sendKeys(jobTitleName);
-        }
-        else {
-            jobTitleFieldLocator.sendKeys(jobTitleName);
-        }
+        jobTitleFieldLocator.sendKeys(jobTitleName);
     }
+
     public void jobDescriptionField(String jobDescription) {
         WebElement jobDescriptiontionFieldLocator = driver.findElement(By.xpath("//div/textarea[@placeholder='Type description here']"));
-        if(jobDescriptiontionFieldLocator.getText()!="") {
-            jobDescriptiontionFieldLocator.sendKeys(Keys.CONTROL+"a");
-            jobDescriptiontionFieldLocator.sendKeys(Keys.DELETE);
-            jobDescriptiontionFieldLocator.sendKeys(jobDescription);
-        }
-        else {
-            jobDescriptiontionFieldLocator.sendKeys(jobDescription);
-        }
+        jobDescriptiontionFieldLocator.sendKeys(jobDescription);
     }
+
     public void noteField(String note) {
         WebElement noteFieldLocator = driver.findElement(By.xpath("//div/textarea[@placeholder='Add note']"));
-        if(noteFieldLocator.getText()!="") {
-            noteFieldLocator.sendKeys(Keys.CONTROL+"a");
-            noteFieldLocator.sendKeys(Keys.DELETE);
-            noteFieldLocator.sendKeys(note);
-        }
-        else {
-            noteFieldLocator.sendKeys(note);
-        }
+        noteFieldLocator.sendKeys(note);
     }
+
     public void saveButton() {
         driver.findElement(By.xpath("//button[text()=' Save ']")).click();
     }
+
     public void cancelButton() {
         driver.findElement(By.xpath("//button[text()=' Cancel ']")).click();
     }
+
+    public void updatedJobTitleField(String updatedJobTitle) {
+        WebElement jobTitleFieldLocator = driver.findElement(By.xpath("(//div/label[text()='Job Title']/following::div/input)[position()=1]"));
+        jobTitleFieldLocator.sendKeys(Keys.CONTROL + "a");
+        jobTitleFieldLocator.sendKeys(Keys.DELETE);
+        jobTitleFieldLocator.sendKeys(updatedJobTitle);
+    }
+
+    public void updatedJobDescriptionField(String updatedJobDescription) {
+        WebElement jobDescriptiontionFieldLocator = driver.findElement(By.xpath("//div/textarea[@placeholder='Type description here']"));
+        jobDescriptiontionFieldLocator.sendKeys(Keys.CONTROL + "a");
+        jobDescriptiontionFieldLocator.sendKeys(Keys.DELETE);
+        jobDescriptiontionFieldLocator.sendKeys(updatedJobDescription);
+    }
+    public void updatedNoteField(String updatedNote) {
+        WebElement noteFieldLocator = driver.findElement(By.xpath("//div/textarea[@placeholder='Add note']"));
+        noteFieldLocator.sendKeys(Keys.CONTROL+"a");
+        noteFieldLocator.sendKeys(Keys.DELETE);
+        noteFieldLocator.sendKeys(updatedNote);
+    }
+
+
 }
