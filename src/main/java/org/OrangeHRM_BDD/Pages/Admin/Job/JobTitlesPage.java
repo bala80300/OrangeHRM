@@ -63,21 +63,33 @@ public class JobTitlesPage extends OrangeHRMBase {
 
     public void updatedJobTitleField(String updatedJobTitle) {
         WebElement jobTitleFieldLocator = driver.findElement(By.xpath("(//div/label[text()='Job Title']/following::div/input)[position()=1]"));
-        jobTitleFieldLocator.sendKeys(Keys.CONTROL + "a");
-        jobTitleFieldLocator.sendKeys(Keys.DELETE);
+        try {
+            Thread.sleep(1000);
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
+        jobTitleFieldLocator.sendKeys(Keys.chord(Keys.CONTROL,"a", Keys.BACK_SPACE));
         jobTitleFieldLocator.sendKeys(updatedJobTitle);
     }
 
-    public void updatedJobDescriptionField(String updatedJobDescription) {
+    public void updatedJobDescriptionField(String updatedJobDescription){
         WebElement jobDescriptiontionFieldLocator = driver.findElement(By.xpath("//div/textarea[@placeholder='Type description here']"));
-        jobDescriptiontionFieldLocator.sendKeys(Keys.CONTROL + "a");
-        jobDescriptiontionFieldLocator.sendKeys(Keys.DELETE);
+        try {
+            Thread.sleep(1000);
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
+        jobDescriptiontionFieldLocator.sendKeys(Keys.chord(Keys.CONTROL,"a", Keys.BACK_SPACE));
         jobDescriptiontionFieldLocator.sendKeys(updatedJobDescription);
     }
     public void updatedNoteField(String updatedNote) {
         WebElement noteFieldLocator = driver.findElement(By.xpath("//div/textarea[@placeholder='Add note']"));
-        noteFieldLocator.sendKeys(Keys.CONTROL+"a");
-        noteFieldLocator.sendKeys(Keys.DELETE);
+        try {
+            Thread.sleep(1000);
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
+        noteFieldLocator.sendKeys(Keys.chord(Keys.CONTROL,"a", Keys.BACK_SPACE));
         noteFieldLocator.sendKeys(updatedNote);
     }
 
