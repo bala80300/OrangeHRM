@@ -3,6 +3,7 @@ package stepDefinitions.Login;
 import io.cucumber.java.en.*;
 import org.OrangeHRM_BDD.Pages.Dashboard.DashboardPage;
 import org.OrangeHRM_BDD.Pages.login.LoginPage;
+import org.junit.Assert;
 
 public class Login {
     LoginPage loginPage = new LoginPage();
@@ -31,7 +32,7 @@ public class Login {
 
     @Then("the error message should be displayed and it should not login")
     public void theErrorMessageShouldBeDisplayedAndItShouldNotLogin() {
-        loginPage.errorText();
+        Assert.assertEquals(loginPage.errorText(),"Invalid credentials");
     }
 
     @Given("the user logins the page with valid credentials")

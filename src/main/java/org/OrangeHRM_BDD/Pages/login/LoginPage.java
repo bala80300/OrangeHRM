@@ -35,7 +35,7 @@ public class LoginPage extends OrangeHRMBase {
         driver.findElement(By.xpath("//button[@type='submit']")).click();
     }
 
-    public void errorText() {
-        driver.findElement(By.xpath("//p[text()='Invalid credentials']")).getText();
+    public String errorText() {
+        return driver.findElement(By.xpath("//p[text()='Invalid credentials']")).getText();
     }
 }
