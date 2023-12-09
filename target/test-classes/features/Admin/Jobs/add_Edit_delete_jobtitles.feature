@@ -20,7 +20,7 @@ Feature: Feature to test the add, edit and delete options for the job titles
   Scenario Outline: Verify the edit user and delete job titles functionality
     #edit functionality
     Given the user navigates to already created job title with "<jobTitle>"
-    When the user clicks on edit button for the user with "<jobTitle>"
+    When the user clicks on edit button for the job with "<jobTitle>"
     Then the user is in Edit Job Title page
     When user edits with parameters "<updatedJobTitle>", "<updatedJobDescription>", "<updatedNote>"
     And the user clicks on Save button in Edit Job Title page

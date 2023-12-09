@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="Cucumber" time="94.577" tests="2" skipped="0" failures="0" errors="0">
-<testcase classname="Feature to test the add, edit and delete options for the job titles" name="Verify the add job title functionality - Example #1.1" time="27.163">
+<testsuite name="Cucumber" time="97.236" tests="2" skipped="0" failures="0" errors="0">
+<testcase classname="Feature to test the add, edit and delete options for the job titles" name="Verify the add job title functionality - Example #1.1" time="30.992">
 <system-out><![CDATA[
 Given the user logins the page with valid credentials.......................passed
 Given the user is in job titles page........................................passed
@@ -11,11 +11,11 @@ And the user clicks on Save button in Add Job Title Page....................pass
 Then the newly added "Data Analyst" and "Analysing the data for projects" should be saved and added to the Job Titles records.passed
 ]]></system-out>
 </testcase>
-<testcase classname="Feature to test the add, edit and delete options for the job titles" name="Verify the edit user and delete job titles functionality - Example #1.1" time="67.143">
+<testcase classname="Feature to test the add, edit and delete options for the job titles" name="Verify the edit user and delete job titles functionality - Example #1.1" time="65.914">
 <system-out><![CDATA[
 Given the user logins the page with valid credentials.......................passed
 Given the user navigates to already created job title with "Data Analyst"...passed
-When the user clicks on edit button for the user with "Data Analyst"........passed
+When the user clicks on edit button for the job with "Data Analyst".........passed
 Then the user is in Edit Job Title page.....................................passed
 When user edits with parameters "Data Scientist", "Making decisions on analysed data", "Making decisions on analysed data".passed
 And the user clicks on Save button in Edit Job Title page...................passed

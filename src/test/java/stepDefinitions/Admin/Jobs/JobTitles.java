@@ -71,6 +71,11 @@ public class JobTitles extends JobTitlesPage {
         Assert.assertEquals(jobTitleName, jobTitleFieldLocator.getText());
     }
 
+    @When("the user clicks on edit button for the job with {string}")
+    public void theUserClicksOnEditButtonForTheJobWith(String jobTitleName) {
+        editButton(jobTitleName);
+    }
+
     @Then("the user is in Edit Job Title page")
     public void the_user_is_in_edit_job_title_page() {
         String editJobTitleLocator = driver.findElement(By.xpath("//div/h6[text()='Edit Job Title']")).getText();
@@ -124,9 +129,7 @@ public class JobTitles extends JobTitlesPage {
         try {
             driver.findElement(By.xpath("//div[text()='" + updatedJobTitle + "']"));
         } catch (NoSuchElementException e) {
-            System.out.println("The newly updated job title " + updatedJobTitle + "with its details are deleted successfully as expected");
+            System.out.println("The newly updated job title " + updatedJobTitle + " with its details are deleted successfully as expected");
         }
     }
-
-
 }
