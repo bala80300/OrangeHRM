@@ -92,7 +92,7 @@ public class JobTitles extends JobTitlesPage {
 
     @Then("the records should be updated as {string}, {string}")
     public void the_records_should_be_updated_as(String updatedJobTitle, String updatedJobDescription) {
-        wait.until(ExpectedConditions.visibilityOfElementLocated((By.xpath("//div/h5"))));
+        wait.until(ExpectedConditions.visibilityOfElementLocated((By.xpath("//div/h6[text()='Job Titles']"))));
 
         WebElement updatedJobTitleField = driver.findElement(By.xpath("//div[text()='" + updatedJobTitle + "']"));
         WebElement updatedJobDescriptionField = driver.findElement(By.xpath("//div[text()='" + updatedJobTitle + "']/following::span[text()[contains(.,'" + updatedJobDescription + "')]]"));
@@ -107,14 +107,26 @@ public class JobTitles extends JobTitlesPage {
         System.out.println("Jobs before deletion :" + totalJobRecords());
     }
 
+    @When("the user clicks on delete button for the user with {string} in Job Titles page")
+    public void theUserClicksOnDeleteButtonForTheUserWithInJobTitlesPage(String updatedJobTitle) {
+        deleteButton(updatedJobTitle);
+    }
+
+    @And("the user clicks YES on Are you sure Dialog in Job Titles page")
+    public void theUserClicksYESOnAreYouSureDialogInJobTitlesPage() {
+        yesInconfirmationDialogButton();
+        wait.until(ExpectedConditions.visibilityOfElementLocated((By.xpath("//div/h6[text()='Job Titles']"))));
+    }
 
     @Then("the job Title {string} will be deleted from the records")
-    public void theJobTitleWillBeDeletedFromTheRecords(String jobTitleName) {
+    public void theJobTitleWillBeDeletedFromTheRecords(String updatedJobTitle) {
         System.out.println("Jobs After deletion :" + totalJobRecords());
         try {
-            driver.findElement(By.xpath("//div[text()='" + jobTitleName + "']"));
+            driver.findElement(By.xpath("//div[text()='" + updatedJobTitle + "']"));
         } catch (NoSuchElementException e) {
-            System.out.println("Job title" + jobTitleName + "is deleted");
+            System.out.println("The newly updated job title " + updatedJobTitle + "with its details are deleted successfully as expected");
         }
     }
+
+
 }

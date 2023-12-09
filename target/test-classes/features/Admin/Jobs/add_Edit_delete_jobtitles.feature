@@ -27,8 +27,8 @@ Feature: Feature to test the add, edit and delete options for the job titles
     Then the records should be updated as "<updatedJobTitle>", "<updatedJobDescription>"
     #delete functionality
     And user notes the total records of the Job Titles
-    When the user clicks on delete button for the user with "<updatedJobTitle>"
-    And the user clicks YES on Are you sure? Dialog
+    When the user clicks on delete button for the user with "<updatedJobTitle>" in Job Titles page
+    And the user clicks YES on Are you sure Dialog in Job Titles page
     Then the job Title "<updatedJobTitle>" will be deleted from the records
     Examples:
       | jobTitle     | updatedJobTitle | updatedJobDescription             | updatedNote                       |

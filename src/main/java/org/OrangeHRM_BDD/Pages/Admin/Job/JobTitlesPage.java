@@ -26,8 +26,8 @@ public class JobTitlesPage extends OrangeHRMBase {
         driver.findElement(By.xpath("(//div[text()='" + jobTitleName + "']/following::i)[position() = 2]")).click();
     }
 
-    public void deleteButton(String jobTitleName) {
-        driver.findElement(By.xpath("(//div[text()='" + jobTitleName + "']/following::i)[position() = 1]")).click();
+    public void deleteButton(String updatedJobTitle) {
+        driver.findElement(By.xpath("(//div[text()='" + updatedJobTitle + "']/following::i)[position() = 1]")).click();
     }
 
     public void yesInconfirmationDialogButton() {

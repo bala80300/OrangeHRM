@@ -112,6 +112,7 @@ public class AddEditDeleteUsers extends AddUsersPage {
     public void theUserWillBeDeletedFromTheRecords() {
         searchUsers.userNotesTheTotalRecordsOfTheUsers();
     }
+
 }
 
 
