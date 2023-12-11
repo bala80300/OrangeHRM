@@ -53,11 +53,11 @@ public class SearchUsers extends SearchUsersPage {
 
         Assert.assertEquals("",usernameFieldClear.getAttribute("value"));
 
-        Assert.assertEquals(null,userRoleDDClear.getAttribute("value"));
+        Assert.assertNull(userRoleDDClear.getAttribute("value"));
 
         Assert.assertEquals("",employeeNameFieldClear.getAttribute("value"));
 
-        Assert.assertEquals(null,statusDDClear.getAttribute("value"));
+        Assert.assertNull(statusDDClear.getAttribute("value"));
 
     }
 

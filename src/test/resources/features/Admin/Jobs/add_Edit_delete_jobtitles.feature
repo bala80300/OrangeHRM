@@ -1,4 +1,4 @@
-@jobtitle
+@jobtitle @demo
 Feature: Feature to test the add, edit and delete options for the job titles
 
   Background:

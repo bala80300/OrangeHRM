@@ -1,4 +1,4 @@
-@usermanagement
+@usermanagement @demo
 Feature: Feature to test the add, edit and delete options for the user
 
   Background:
@@ -13,8 +13,8 @@ Feature: Feature to test the add, edit and delete options for the user
     And the user clicks on Save button in Add User Page
     Then the user with "<username>" should be saved and added to the user records
     Examples:
-      | userRole | status  | employeeName | username | password | confirmPassword |
-      | Admin    | Enabled | 123 Collings | Bala S   | Bala@123 | Bala@123        |
+      | userRole | status  | employeeName  | username | password | confirmPassword |
+      | Admin    | Enabled | Paul Collings | Bala S   | Bala@123 | Bala@123        |
 
   @edit_and_delete_user
   Scenario Outline: Verify the edit user and delete user functionality
