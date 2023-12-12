@@ -7,6 +7,5 @@ import org.openqa.selenium.By;
 public class DashboardPage extends OrangeHRMBase {
     public boolean dashboardHeader() {
         return driver.findElement(By.xpath("//div/span/h6")).isDisplayed();
-
     }
 }

@@ -6,6 +6,7 @@ import org.OrangeHRM_BDD.Pages.Admin.UserManagement.Users.SearchUsersPage;
 import org.OrangeHRM_BDD.Pages.Modules.Admin;
 import org.junit.Assert;
 import org.openqa.selenium.By;
+import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -17,7 +18,7 @@ public class AddEditDeleteUsers extends AddUsersPage {
     SearchUsersPage searchUsersPage = new SearchUsersPage();
     SearchUsers searchUsers = new SearchUsers();
     AddUsersPage addUsersPage = new AddUsersPage();
-    WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
+    WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
 
     //Adding the user
     @When("the user clicks on Add button in Search Users page")
@@ -108,9 +109,14 @@ public class AddEditDeleteUsers extends AddUsersPage {
         wait.until(ExpectedConditions.visibilityOfElementLocated((By.xpath("//div/h5"))));
     }
 
-    @Then("the user will be deleted from the user records")
-    public void theUserWillBeDeletedFromTheRecords() {
+    @Then("the user {string} will be deleted from the user records")
+    public void theUserWillBeDeletedFromTheRecords(String username) {
         searchUsers.userNotesTheTotalRecordsOfTheUsers();
+        try {
+            driver.findElement(By.xpath("//div[text()='" + username + "'][position() = 1]"));
+        } catch (NoSuchElementException e) {
+            System.out.println("The username " + username + " with its updated details are deleted successfully as expected");
+        }
     }
 
 }

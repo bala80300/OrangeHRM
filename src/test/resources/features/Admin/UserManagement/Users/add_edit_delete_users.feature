@@ -13,8 +13,8 @@ Feature: Feature to test the add, edit and delete options for the user
     And the user clicks on Save button in Add User Page
     Then the user with "<username>" should be saved and added to the user records
     Examples:
-      | userRole | status  | employeeName  | username | password | confirmPassword |
-      | Admin    | Enabled | Paul Collings | Bala S   | Bala@123 | Bala@123        |
+      | userRole | status  | employeeName | username | password | confirmPassword |
+      | Admin    | Enabled | Collings     | Bala S   | Bala@123 | Bala@123        |
 
   @edit_and_delete_user
   Scenario Outline: Verify the edit user and delete user functionality
@@ -29,7 +29,7 @@ Feature: Feature to test the add, edit and delete options for the user
     And user notes the total records of the users
     When the user clicks on delete button for the user with "<username>"
     And the user clicks YES on Are you sure? Dialog
-    Then the user will be deleted from the user records
+    Then the user "<username>" will be deleted from the user records
     Examples:
       | username | updatedUserRole | updatedStatus |
       | Bala S   | ESS             | Disabled      |

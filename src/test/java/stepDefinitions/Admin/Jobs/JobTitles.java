@@ -17,7 +17,7 @@ import java.time.Duration;
 public class JobTitles extends JobTitlesPage {
     JobDropdownsPage jobDropdownsPage = new JobDropdownsPage();
     Admin admin = new Admin();
-    WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
+    WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
 
     //Adding the job title
     @Given("the user is in job titles page")

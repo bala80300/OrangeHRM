@@ -1,43 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="Cucumber" time="247.398" tests="6" skipped="0" failures="0" errors="0">
-<testcase classname="Feature to test the add, edit and delete options for the job titles" name="Verify the add job title functionality - Example #1.1" time="51.385">
-<system-out><![CDATA[
-Given the user logins the page with valid credentials.......................passed
-Given the user is in job titles page........................................passed
-When the user clicks on Add button in job Titles page.......................passed
-Then the user is in Add Job Title Page......................................passed
-When user adds with parameters "Data Analyst", "Analysing the data for projects", "Analysing the data for projects".passed
-And the user clicks on Save button in Add Job Title Page....................passed
-Then the newly added "Data Analyst" and "Analysing the data for projects" should be saved and added to the Job Titles records.passed
-]]></system-out>
-</testcase>
-<testcase classname="Feature to test the add, edit and delete options for the job titles" name="Verify the edit user and delete job titles functionality - Example #1.1" time="75.093">
-<system-out><![CDATA[
-Given the user logins the page with valid credentials.......................passed
-Given the user navigates to already created job title with "Data Analyst"...passed
-When the user clicks on edit button for the job with "Data Analyst".........passed
-Then the user is in Edit Job Title page.....................................passed
-When user edits with parameters "Data Scientist", "Making decisions on analysed data", "Making decisions on analysed data".passed
-And the user clicks on Save button in Edit Job Title page...................passed
-Then the records should be updated as "Data Scientist", "Making decisions on analysed data".passed
-And user notes the total records of the Job Titles..........................passed
-When the user clicks on delete button for the user with "Data Scientist" in Job Titles page.passed
-And the user clicks YES on Are you sure Dialog in Job Titles page...........passed
-Then the job Title "Data Scientist" will be deleted from the records........passed
-]]></system-out>
-</testcase>
-<testcase classname="Feature to test the add, edit and delete options for the user" name="Verify the add user functionality - Example #1.1" time="38.37">
+<testsuite name="Cucumber" time="118.09" tests="2" skipped="0" failures="0" errors="0">
+<testcase classname="Feature to test the add, edit and delete options for the user" name="Verify the add user functionality - Example #1.1" time="50.685">
 <system-out><![CDATA[
 Given the user logins the page with valid credentials.......................passed
 Given the user is in user management page...................................passed
 When the user clicks on Add button in Search Users page.....................passed
 Then the user is in Add User Page...........................................passed
-When user adds with parameters "Admin", "Enabled", "Paul Collings", "Bala S", "Bala@123", "Bala@123".passed
+When user adds with parameters "Admin", "Enabled", "Collings", "Bala S", "Bala@123", "Bala@123".passed
 And the user clicks on Save button in Add User Page.........................passed
 Then the user with "Bala S" should be saved and added to the user records...passed
 ]]></system-out>
 </testcase>
-<testcase classname="Feature to test the add, edit and delete options for the user" name="Verify the edit user and delete user functionality - Example #1.1" time="33.188">
+<testcase classname="Feature to test the add, edit and delete options for the user" name="Verify the edit user and delete user functionality - Example #1.1" time="66.995">
 <system-out><![CDATA[
 Given the user logins the page with valid credentials.......................passed
 Given the user navigates to already created user with "Bala S"..............passed
@@ -49,33 +23,7 @@ Then the "Bala S" should be updated to the user records with "ESS", "Disabled".p
 And user notes the total records of the users...............................passed
 When the user clicks on delete button for the user with "Bala S"............passed
 And the user clicks YES on Are you sure? Dialog.............................passed
-Then the user will be deleted from the user records.........................passed
-]]></system-out>
-</testcase>
-<testcase classname="Feature to test the user search" name="Verify search And reset functionality in user management - Example #1.1" time="23.529">
-<system-out><![CDATA[
-Given the user logins the page with valid credentials.......................passed
-Given the user is in user management page...................................passed
-And user notes the total records of the users...............................passed
-When user searches with search parameters "Admin", "Admin", "Paul Collings", "Enabled".passed
-And clicks on Search button.................................................passed
-Then the searched user is displayed with the "(1) Record Found".............passed
-When the user clicks on Reset button........................................passed
-Then the values in all of the search parameters should be removed...........passed
-And it should show all the records..........................................passed
-]]></system-out>
-</testcase>
-<testcase classname="Feature to test the user search" name="Verify search And reset functionality in user management - Example #1.2" time="24.872">
-<system-out><![CDATA[
-Given the user logins the page with valid credentials.......................passed
-Given the user is in user management page...................................passed
-And user notes the total records of the users...............................passed
-When user searches with search parameters "Admin", "Admin", "Paul Collings", "Disabled".passed
-And clicks on Search button.................................................passed
-Then the searched user is displayed with the "No Records Found".............passed
-When the user clicks on Reset button........................................passed
-Then the values in all of the search parameters should be removed...........passed
-And it should show all the records..........................................passed
+Then the user "Bala S" will be deleted from the user records................passed
 ]]></system-out>
 </testcase>
 </testsuite>
