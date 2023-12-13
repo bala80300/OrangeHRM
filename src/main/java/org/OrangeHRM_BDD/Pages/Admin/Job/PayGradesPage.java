@@ -42,6 +42,12 @@ public class PayGradesPage extends OrangeHRMBase {
     public void currencyDropdown(String currency) {
         driver.findElement(By.xpath("//*[@role='listbox']//*[text()='" + currency + "']")).click();
     }
+    public void minimumSalaryField(String minimumSalary) {
+        driver.findElement(By.xpath("//div/label[text()='Minimum Salary']//following::input[position()=1]")).sendKeys(minimumSalary);
+    }
+    public void maximumSalaryField(String maximumSalary) {
+        driver.findElement(By.xpath("//div/label[text()='Maximum Salary']//following::input[position()=1]")).sendKeys(maximumSalary);
+    }
 
 
 }
