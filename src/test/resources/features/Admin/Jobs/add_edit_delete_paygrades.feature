@@ -49,3 +49,14 @@ Feature: Feature to test the add, edit and delete options for the pay grades
       | Bala_Grade  | 20000                | 30000                |
 
   @delete_paygrade_and_currency
+  Scenario Outline: Verify the delete pay grade and delete currency functionality
+    Given the user is in Pay Grades page
+    When the user clicks on Edit button in "<updatedName>" in Pay Grades page
+    And the user clicks on delete button on the "<currency>"
+    And the user clicks YES on Are you sure Dialog
+    Then the "<currency>" will be deleted
+    When the user clicks cancel button in Edit Pay Grade page
+    And the user clicks on delete button on the "<updatedName>" in Pay Grades page
+    Then the "<updatedName>" pay grade is deleted
+      | updatedName | currency           |
+      | Bala_Grade  | INR - Indian Rupee |
