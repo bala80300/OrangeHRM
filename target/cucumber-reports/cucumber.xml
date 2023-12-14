@@ -1,29 +1,60 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="Cucumber" time="118.09" tests="2" skipped="0" failures="0" errors="0">
-<testcase classname="Feature to test the add, edit and delete options for the user" name="Verify the add user functionality - Example #1.1" time="50.685">
+<testsuite name="Cucumber" time="57.347" tests="4" skipped="0" failures="4" errors="0">
+<testcase classname="Feature to test the add, edit and delete options for the pay grades" name="Verify the add pay grade and add currency functionality - Example #1.1" time="27.264">
+<failure/>
 <system-out><![CDATA[
 Given the user logins the page with valid credentials.......................passed
-Given the user is in user management page...................................passed
-When the user clicks on Add button in Search Users page.....................passed
-Then the user is in Add User Page...........................................passed
-When user adds with parameters "Admin", "Enabled", "Collings", "Bala S", "Bala@123", "Bala@123".passed
-And the user clicks on Save button in Add User Page.........................passed
-Then the user with "Bala S" should be saved and added to the user records...passed
+Given the user is in Pay Grades page........................................undefined
+When the user clicks on Add button in Pay Grades page.......................skipped
+Then the user is in Add Pay Grade Page......................................skipped
+When user adds the parameters "Grade_Bala"..................................skipped
+And the user clicks on Save button in Add Pay Grades Page...................skipped
+Then the Edit Pay Grade page and Currencies should be visible...............skipped
+When the user clicks on Add button near Currencies..........................skipped
+Then the Add Currency page should be visible................................skipped
+When user adds the parameters "INR - Indian Rupee", "10000", "25000"........skipped
+And the user clicks on Save button in Add Currency Page.....................skipped
+Then the newly added "INR - Indian Rupee" is visible........................skipped
+When the user clicks button cancel in Edit Pay Grade page...................skipped
+Then the newly added pay grade "Grade_Bala" is visible......................skipped
 ]]></system-out>
 </testcase>
-<testcase classname="Feature to test the add, edit and delete options for the user" name="Verify the edit user and delete user functionality - Example #1.1" time="66.995">
+<testcase classname="Feature to test the add, edit and delete options for the pay grades" name="Verify the edit pay grade functionality - Example #1.1" time="10.881">
+<failure/>
 <system-out><![CDATA[
 Given the user logins the page with valid credentials.......................passed
-Given the user navigates to already created user with "Bala S"..............passed
-When the user clicks on edit button for the user with "Bala S"..............passed
-Then the user is in Edit User Page..........................................passed
-When user edits with parameters "ESS", "Disabled"...........................passed
-And the user clicks on Save button in Edit user page........................passed
-Then the "Bala S" should be updated to the user records with "ESS", "Disabled".passed
-And user notes the total records of the users...............................passed
-When the user clicks on delete button for the user with "Bala S"............passed
-And the user clicks YES on Are you sure? Dialog.............................passed
-Then the user "Bala S" will be deleted from the user records................passed
+Given the user is in Pay Grades page........................................undefined
+When the user clicks on Edit button in "Grade_Bala" Pay Grades page.........skipped
+When user edits the parameters "Grade_Bala".................................skipped
+And the user clicks on Save button in Edit Pay Grade Page...................skipped
+When the user clicks cancel button in Edit Pay Grade page...................skipped
+Then the edited Pay Grade Name "Bala_Grade" is updated in the records.......skipped
+]]></system-out>
+</testcase>
+<testcase classname="Feature to test the add, edit and delete options for the pay grades" name="Verify the edit currency functionality - Example #1.1" time="9.259">
+<failure/>
+<system-out><![CDATA[
+Given the user logins the page with valid credentials.......................passed
+Given the user is in Pay Grades page........................................undefined
+When the user clicks on Edit button in "Bala_Grade" Pay Grades page.........skipped
+When user edits the parameters "20000","30000"..............................skipped
+And the "<currency>" field is not enabled...................................skipped
+And the user clicks on Save button in Add Currency Page.....................skipped
+Then the edited currency salaries "20000",<"updatedMaximumSalary"> are updated in the records.skipped
+]]></system-out>
+</testcase>
+<testcase classname="Feature to test the add, edit and delete options for the pay grades" name="Verify the delete pay grade and delete currency functionality - Example #1.1" time="9.522">
+<failure/>
+<system-out><![CDATA[
+Given the user logins the page with valid credentials.......................passed
+Given the user is in Pay Grades page........................................undefined
+When the user clicks on Edit button in "Bala_Grade" in Pay Grades page......skipped
+And the user clicks on delete button on the "INR - Indian Rupee"............skipped
+And the user clicks YES on Are you sure Dialog..............................skipped
+Then the "INR - Indian Rupee" will be deleted...............................skipped
+When the user clicks cancel button in Edit Pay Grade page...................skipped
+And the user clicks on delete button on the "Bala_Grade" in Pay Grades page.skipped
+Then the "Bala_Grade" pay grade is deleted..................................skipped
 ]]></system-out>
 </testcase>
 </testsuite>
