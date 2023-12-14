@@ -16,9 +16,9 @@ Feature: Feature to test the add, edit and delete options for the pay grades
     Then the Add Currency page should be visible
     When user adds the parameters "<currency>", "<minimumSalary>", "<maximumSalary>"
     And the user clicks on Save button in Add Currency Page
-    Then the newly added "<currency>" is visible
+    Then the newly added parameters "<currency>", "<minimumSalary>", "<maximumSalary>" are visible
     When the user clicks button cancel in Edit Pay Grade page
-    Then the newly added pay grade "<name>" is visible
+    Then the newly added pay grade "<name>" and currency "<currency>" is visible
 
     Examples:
       | name       | currency           | minimumSalary | maximumSalary |
@@ -54,11 +54,11 @@ Feature: Feature to test the add, edit and delete options for the pay grades
   Scenario Outline: Verify the delete pay grade and delete currency functionality
     Given the user is in Pay Grades page
     When the user clicks on Edit button in "<updatedName>" in Pay Grades page
-    And the user clicks on delete button on the "<currency>"
-    And the user clicks YES on Are you sure Dialog
+    When the user clicks on delete button on the "<currency>"
+    When the user clicks YES on Are you sure Dialog
     Then the "<currency>" will be deleted
     When the user clicks cancel button in Edit Pay Grade page
-    And the user clicks on delete button on the "<updatedName>" in Pay Grades page
+    When the user clicks on delete button on the "<updatedName>" in Pay Grades page
     Then the "<updatedName>" pay grade is deleted
 
     Examples:

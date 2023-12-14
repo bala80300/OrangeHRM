@@ -16,9 +16,9 @@ Feature: Feature to test the add, edit and delete options for the pay grades
     Then the Add Currency page should be visible
     When user adds the parameters "<currency>", "<minimumSalary>", "<maximumSalary>"
     And the user clicks on Save button in Add Currency Page
-    Then the newly added "<currency>" is visible
+    Then the newly added parameters "<currency>", "<minimumSalary>", "<maximumSalary>" are visible
     When the user clicks button cancel in Edit Pay Grade page
-    Then the newly added pay grade "<name>" is visible
+    Then the newly added pay grade "<name>" and currency "<currency>" is visible
 
     Examples:
       | name       | currency           | minimumSalary | maximumSalary |
