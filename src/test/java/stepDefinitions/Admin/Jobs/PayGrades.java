@@ -6,13 +6,14 @@ import org.OrangeHRM_BDD.Pages.Admin.Job.PayGradesPage;
 import org.OrangeHRM_BDD.Pages.Modules.Admin;
 import org.junit.Assert;
 import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
 
 public class PayGrades extends PayGradesPage {
-    WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+    WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
     JobDropdownsPage jobDropdownsPage = new JobDropdownsPage();
     Admin admin = new Admin();
 
@@ -72,14 +73,21 @@ public class PayGrades extends PayGradesPage {
 
     @When("the user clicks on Save button in Add Currency Page")
     public void the_user_clicks_on_save_button_in_add_currency_page() {
-        saveButton();
+        saveButtonInAddCurrency();
     }
 
     @Then("the newly added parameters {string}, {string}, {string} are visible")
-    public void theNewlyAddedparametersAreVisible(String currency, String minimumSalary, String maximumSalary) {
-        Assert.assertEquals(currency, currencyEntryInRecords(currency));
-        Assert.assertEquals(minimumSalary,minimumSalaryEntryInRecords(currency));
-        Assert.assertEquals(maximumSalary,maximumSalaryEntryInRecords(currency));
+    public void theNewlyAddedparametersAreVisible(String currencyInRecords, String minimumSalary, String maximumSalary) {
+        wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//div/h6[text()='Currencies']")));
+        Assert.assertEquals("Currencies",getCurrenciesTitle());
+
+        WebElement currencyInRecordsLocator = driver.findElement(By.xpath("//div[text()='" + currencyInRecords + "']"));
+        WebElement minimumSalaryInRecordsLocator = driver.findElement(By.xpath("//div[text()='"+currencyInRecords+"']/following::div[position()=2]"));
+        WebElement maximumSalaryInRecordsLocator = driver.findElement(By.xpath("//div[text()='"+currencyInRecords+"']/following::div[position()=4]"));
+
+        Assert.assertEquals(currencyInRecords, currencyInRecordsLocator.getText());
+        Assert.assertEquals(minimumSalary, minimumSalaryInRecordsLocator.getText());
+        Assert.assertEquals(maximumSalary, maximumSalaryInRecordsLocator.getText());
     }
 
     @When("the user clicks button cancel in Edit Pay Grade page")
@@ -88,9 +96,10 @@ public class PayGrades extends PayGradesPage {
     }
 
     @Then("the newly added pay grade {string} and currency {string} is visible")
-    public void the_newly_added_pay_grade_and_currency_is_visible(String name, String currency) {
+    public void the_newly_added_pay_grade_and_currency_is_visible(String name, String currencyInRecords) {
+        Assert.assertEquals("Pay Grades",getPayGradesTitle());
         Assert.assertEquals(name, nameLocatorInPayGrades(name));
-        Assert.assertEquals(currency, currencyLocatorInPayGrades(name));
+        Assert.assertEquals(currencyInRecords, currencyLocatorInPayGrades(name));
     }
 
     //editing the paygrade

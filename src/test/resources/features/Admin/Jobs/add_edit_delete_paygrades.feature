@@ -16,13 +16,13 @@ Feature: Feature to test the add, edit and delete options for the pay grades
     Then the Add Currency page should be visible
     When user adds the parameters "<currency>", "<minimumSalary>", "<maximumSalary>"
     And the user clicks on Save button in Add Currency Page
-    Then the newly added parameters "<currency>", "<minimumSalary>", "<maximumSalary>" are visible
+    Then the newly added parameters "<currencyInRecords>", "<minimumSalary>", "<maximumSalary>" are visible
     When the user clicks button cancel in Edit Pay Grade page
-    Then the newly added pay grade "<name>" and currency "<currency>" is visible
+    Then the newly added pay grade "<name>" and currency "<currencyInRecords>" is visible
 
     Examples:
-      | name       | currency           | minimumSalary | maximumSalary |
-      | Grade_Bala | INR - Indian Rupee | 10000         | 25000         |
+      | name       | currency           | minimumSalary | maximumSalary | currencyInRecords |
+      | Grade_Bala | INR - Indian Rupee | 10000.00      | 25000.00      | Indian Rupee      |
 
   @edit_paygrade
   Scenario Outline: Verify the edit pay grade functionality

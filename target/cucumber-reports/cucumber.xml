@@ -1,44 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="Cucumber" time="48.249" tests="1" skipped="0" failures="1" errors="0">
-<testcase classname="Feature to test the add, edit and delete options for the pay grades" name="Verify the add pay grade and add currency functionality - Example #1.1" time="47.911">
-<failure type="org.openqa.selenium.NoSuchElementException" message="no such element: Unable to locate element: {&quot;method&quot;:&quot;xpath&quot;,&quot;selector&quot;:&quot;//*[@role='listbox']//*[text()='INR - Indian Rupee']&quot;}
-  (Session info: chrome=120.0.6099.109)
-For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#no-such-element-exception
-Build info: version: '4.16.1', revision: '9b4c83354e'
-System info: os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '11.0.16.1'
-Driver info: org.openqa.selenium.chrome.ChromeDriver
-Command: [eb9822814a15653575777c80efa1f728, findElement {using=xpath, value=//*[@role='listbox']//*[text()='INR - Indian Rupee']}]
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 120.0.6099.109, chrome: {chromedriverVersion: 120.0.6099.71 (9729082fe617..., userDataDir: C:\Users\User\AppData\Local...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:57944}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:57944/devtoo..., se:cdpVersion: 120.0.6099.109, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
-Session ID: eb9822814a15653575777c80efa1f728">
-<![CDATA[org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {"method":"xpath","selector":"//*[@role='listbox']//*[text()='INR - Indian Rupee']"}
-  (Session info: chrome=120.0.6099.109)
-For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#no-such-element-exception
-Build info: version: '4.16.1', revision: '9b4c83354e'
-System info: os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '11.0.16.1'
-Driver info: org.openqa.selenium.chrome.ChromeDriver
-Command: [eb9822814a15653575777c80efa1f728, findElement {using=xpath, value=//*[@role='listbox']//*[text()='INR - Indian Rupee']}]
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 120.0.6099.109, chrome: {chromedriverVersion: 120.0.6099.71 (9729082fe617..., userDataDir: C:\Users\User\AppData\Local...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:57944}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:57944/devtoo..., se:cdpVersion: 120.0.6099.109, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
-Session ID: eb9822814a15653575777c80efa1f728
-	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
-	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
-	at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
-	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:490)
-	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:200)
-	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:133)
-	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:52)
-	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:191)
-	at org.openqa.selenium.remote.service.DriverCommandExecutor.invokeExecute(DriverCommandExecutor.java:200)
-	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:175)
-	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:523)
-	at org.openqa.selenium.remote.ElementLocation$ElementFinder$2.findElement(ElementLocation.java:165)
-	at org.openqa.selenium.remote.ElementLocation.findElement(ElementLocation.java:59)
-	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:360)
-	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:354)
-	at org.OrangeHRM_BDD.Pages.Admin.Job.PayGradesPage.currencyDropdown(PayGradesPage.java:78)
-	at stepDefinitions.Admin.Jobs.PayGrades.user_adds_the_parameters(PayGrades.java:68)
-	at ✽.user adds the parameters "INR - Indian Rupee", "10000", "25000"(file:///D:/OrangeHRM/src/test/resources/features/Admin/Jobs/add_edit_delete_paygrades.feature:17)
-]]>
-</failure>
+<testsuite name="Cucumber" time="40.117" tests="1" skipped="0" failures="0" errors="0">
+<testcase classname="Feature to test the add, edit and delete options for the pay grades" name="Verify the add pay grade and add currency functionality - Example #1.1" time="39.819">
 <system-out><![CDATA[
 Given the user logins the page with valid credentials.......................passed
 Given the user is in Pay Grades page........................................passed
@@ -49,11 +11,11 @@ And the user clicks on Save button in Add Pay Grades Page...................pass
 Then the Edit Pay Grade page and Currencies should be visible...............passed
 When the user clicks on Add button near Currencies..........................passed
 Then the Add Currency page should be visible................................passed
-When user adds the parameters "INR - Indian Rupee", "10000", "25000"........failed
-And the user clicks on Save button in Add Currency Page.....................skipped
-Then the newly added parameters "INR - Indian Rupee", "10000", "25000" are visible.skipped
-When the user clicks button cancel in Edit Pay Grade page...................skipped
-Then the newly added pay grade "Grade_Bala" and currency "INR - Indian Rupee" is visible.skipped
+When user adds the parameters "INR - Indian Rupee", "10000.00", "25000.00"..passed
+And the user clicks on Save button in Add Currency Page.....................passed
+Then the newly added parameters "Indian Rupee", "10000.00", "25000.00" are visible.passed
+When the user clicks button cancel in Edit Pay Grade page...................passed
+Then the newly added pay grade "Grade_Bala" and currency "Indian Rupee" is visible.passed
 ]]></system-out>
 </testcase>
 </testsuite>

@@ -59,15 +59,6 @@ public class PayGradesPage extends OrangeHRMBase {
         driver.findElement(By.xpath("//button[text()=' Add ']")).click();
     }
 
-    public String currencyEntryInRecords(String currency) {
-        return driver.findElement(By.xpath("//div[text()='" + currency + "']")).getText();
-    }
-    public String minimumSalaryEntryInRecords(String currency) {
-        return driver.findElement(By.xpath("//div[text()='"+currency+"']/following::div[position()=2]")).getText();
-    }
-    public String maximumSalaryEntryInRecords(String currency) {
-        return driver.findElement(By.xpath("//div[text()='"+currency+"']/following::div[position()=4]")).getText();
-    }
 
     //elements in Add Currency
     public String getAddCurrencyTitle() {
@@ -75,7 +66,8 @@ public class PayGradesPage extends OrangeHRMBase {
     }
 
     public void currencyDropdown(String currency) {
-        driver.findElement(By.xpath("//*[@role='listbox']//*[text()='" + currency + "']")).click();
+        driver.findElement(By.xpath("//div/i[@class='oxd-icon bi-caret-down-fill oxd-select-text--arrow']")).click();
+        driver.findElement(By.xpath("//div[@role='listbox']//span[text()='" + currency + "']")).click();
     }
 
     public void minimumSalaryField(String minimumSalary) {
@@ -85,6 +77,10 @@ public class PayGradesPage extends OrangeHRMBase {
     public void maximumSalaryField(String maximumSalary) {
         driver.findElement(By.xpath("//div/label[text()='Maximum Salary']//following::input[position()=1]")).sendKeys(maximumSalary);
     }
+    public void saveButtonInAddCurrency() {
+        driver.findElement(By.xpath("(//button[text()=' Save '])[position()=2]")).click();
+    }
+
 
     //elements in Edit currency
     public String getEditCurrencyTitle() {
