@@ -1,21 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="Cucumber" time="40.117" tests="1" skipped="0" failures="0" errors="0">
-<testcase classname="Feature to test the add, edit and delete options for the pay grades" name="Verify the add pay grade and add currency functionality - Example #1.1" time="39.819">
+<testsuite name="Cucumber" time="22.075" tests="1" skipped="0" failures="0" errors="0">
+<testcase classname="Feature to test the add, edit and delete options for the pay grades" name="Verify the edit pay grade functionality - Example #1.1" time="21.811">
 <system-out><![CDATA[
 Given the user logins the page with valid credentials.......................passed
 Given the user is in Pay Grades page........................................passed
-When the user clicks on Add button in Pay Grades page.......................passed
-Then the user is in Add Pay Grade Page......................................passed
-When user adds the parameters "Grade_Bala"..................................passed
-And the user clicks on Save button in Add Pay Grades Page...................passed
-Then the Edit Pay Grade page and Currencies should be visible...............passed
-When the user clicks on Add button near Currencies..........................passed
-Then the Add Currency page should be visible................................passed
-When user adds the parameters "INR - Indian Rupee", "10000.00", "25000.00"..passed
-And the user clicks on Save button in Add Currency Page.....................passed
-Then the newly added parameters "Indian Rupee", "10000.00", "25000.00" are visible.passed
-When the user clicks button cancel in Edit Pay Grade page...................passed
-Then the newly added pay grade "Grade_Bala" and currency "Indian Rupee" is visible.passed
+When the user clicks on Edit button in "Grade_Bala" Pay Grades page.........passed
+When user updates the name parameter to "Bala_Grade"........................passed
+And the user clicks on Save button in Edit Pay Grade Page...................passed
+When the user clicks cancel button in Edit Pay Grade page...................passed
+Then the edited Pay Grade Name "Bala_Grade" is updated in the records.......passed
 ]]></system-out>
 </testcase>
 </testsuite>

@@ -79,11 +79,11 @@ public class PayGrades extends PayGradesPage {
     @Then("the newly added parameters {string}, {string}, {string} are visible")
     public void theNewlyAddedparametersAreVisible(String currencyInRecords, String minimumSalary, String maximumSalary) {
         wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//div/h6[text()='Currencies']")));
-        Assert.assertEquals("Currencies",getCurrenciesTitle());
+        Assert.assertEquals("Currencies", getCurrenciesTitle());
 
         WebElement currencyInRecordsLocator = driver.findElement(By.xpath("//div[text()='" + currencyInRecords + "']"));
-        WebElement minimumSalaryInRecordsLocator = driver.findElement(By.xpath("//div[text()='"+currencyInRecords+"']/following::div[position()=2]"));
-        WebElement maximumSalaryInRecordsLocator = driver.findElement(By.xpath("//div[text()='"+currencyInRecords+"']/following::div[position()=4]"));
+        WebElement minimumSalaryInRecordsLocator = driver.findElement(By.xpath("//div[text()='" + currencyInRecords + "']/following::div[position()=2]"));
+        WebElement maximumSalaryInRecordsLocator = driver.findElement(By.xpath("//div[text()='" + currencyInRecords + "']/following::div[position()=4]"));
 
         Assert.assertEquals(currencyInRecords, currencyInRecordsLocator.getText());
         Assert.assertEquals(minimumSalary, minimumSalaryInRecordsLocator.getText());
@@ -97,30 +97,41 @@ public class PayGrades extends PayGradesPage {
 
     @Then("the newly added pay grade {string} and currency {string} is visible")
     public void the_newly_added_pay_grade_and_currency_is_visible(String name, String currencyInRecords) {
-        Assert.assertEquals("Pay Grades",getPayGradesTitle());
+        Assert.assertEquals("Pay Grades", getPayGradesTitle());
         Assert.assertEquals(name, nameLocatorInPayGrades(name));
         Assert.assertEquals(currencyInRecords, currencyLocatorInPayGrades(name));
     }
 
     //editing the paygrade
     @When("the user clicks on Edit button in {string} Pay Grades page")
-    public void the_user_clicks_on_edit_button_in_pay_grades_page(String string) {
+    public void the_user_clicks_on_edit_button_in_pay_grades_page(String name) {
+        editButton(name);
     }
 
-    @When("user edits the parameters {string}")
-    public void user_edits_the_parameters(String string) {
+    @When("user updates the name parameter to {string}")
+    public void user_edits_the_parameters(String updatedName) {
+        updatedNameField(updatedName);
     }
 
     @When("the user clicks on Save button in Edit Pay Grade Page")
     public void the_user_clicks_on_save_button_in_edit_pay_grade_page() {
+        saveButton();
     }
 
     @When("the user clicks cancel button in Edit Pay Grade page")
-    public void the_user_clicks_cancel_button_in_edit_pay_grade_page() {
+    public void the_user_clicks_cancel_button_in_edit_pay_grade_page()  {
+        try {
+            Thread.sleep(5000);
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
+        cancelButton();
     }
 
     @Then("the edited Pay Grade Name {string} is updated in the records")
-    public void the_edited_pay_grade_name_is_updated_in_the_records(String string) {
+    public void the_edited_pay_grade_name_is_updated_in_the_records(String updatedName) {
+        WebElement updatedNameLocator = driver.findElement(By.xpath("//div[text()='" + updatedName + "']"));
+        Assert.assertEquals(updatedName, updatedNameLocator.getText());
     }
 
     //editing the currency

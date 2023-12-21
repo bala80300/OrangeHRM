@@ -28,7 +28,7 @@ Feature: Feature to test the add, edit and delete options for the pay grades
   Scenario Outline: Verify the edit pay grade functionality
     Given the user is in Pay Grades page
     When the user clicks on Edit button in "<name>" Pay Grades page
-    When user edits the parameters "<name>"
+    When user updates the name parameter to "<updatedName>"
     And the user clicks on Save button in Edit Pay Grade Page
     When the user clicks cancel button in Edit Pay Grade page
     Then the edited Pay Grade Name "<updatedName>" is updated in the records

@@ -2,6 +2,8 @@ package org.OrangeHRM_BDD.Pages.Admin.Job;
 
 import org.OrangeHRM_BDD.testBase.OrangeHRMBase;
 import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
+import org.openqa.selenium.WebElement;
 
 
 public class PayGradesPage extends OrangeHRMBase {
@@ -49,6 +51,16 @@ public class PayGradesPage extends OrangeHRMBase {
     public void cancelButton() {
         driver.findElement(By.xpath("//button[text()=' Cancel ']")).click();
     }
+    public void updatedNameField(String updatedName) {
+        WebElement nameFieldLocator = driver.findElement(By.xpath("//div/label[text()='Name']/following::input"));
+        try {
+            Thread.sleep(1000);
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
+        nameFieldLocator.sendKeys(Keys.chord(Keys.CONTROL, "a", Keys.BACK_SPACE));
+        nameFieldLocator.sendKeys(updatedName);
+    }
 
     //elements in currencies
     public String getCurrenciesTitle() {
@@ -58,7 +70,6 @@ public class PayGradesPage extends OrangeHRMBase {
     public void addButtonInCurrency() {
         driver.findElement(By.xpath("//button[text()=' Add ']")).click();
     }
-
 
     //elements in Add Currency
     public String getAddCurrencyTitle() {
