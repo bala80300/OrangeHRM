@@ -143,8 +143,8 @@ public class PayGrades extends PayGradesPage {
     public void the_field_is_not_enabled(String string) {
     }
 
-    @Then("the edited currency salaries {string},<{string}> are updated in the records")
-    public void the_edited_currency_salaries_are_updated_in_the_records(String string, String string2) {
+    @Then("the edited currency salaries {string},{string} are updated in the records")
+    public void theEditedCurrencySalariesAreUpdatedInTheRecords(String arg0, String arg1) {
     }
 
     //Deleting paygrades and currency
@@ -171,6 +171,4 @@ public class PayGrades extends PayGradesPage {
     @Then("the {string} pay grade is deleted")
     public void the_pay_grade_is_deleted(String string) {
     }
-
-
 }

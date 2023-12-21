@@ -44,7 +44,7 @@ Feature: Feature to test the add, edit and delete options for the pay grades
     When user edits the parameters "<updatedMinimumSalary>","<updatedMaximumSalary>"
     And the "<currency>" field is not enabled
     And the user clicks on Save button in Add Currency Page
-    Then the edited currency salaries "<updatedMinimumSalary>",<"updatedMaximumSalary"> are updated in the records
+    Then the edited currency salaries "<updatedMinimumSalary>","<updatedMaximumSalary>" are updated in the records
 
     Examples:
       | updatedName | updatedMinimumSalary | updatedMaximumSalary |
