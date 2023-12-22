@@ -1,14 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="Cucumber" time="22.075" tests="1" skipped="0" failures="0" errors="0">
-<testcase classname="Feature to test the add, edit and delete options for the pay grades" name="Verify the edit pay grade functionality - Example #1.1" time="21.811">
+<testsuite name="Cucumber" time="43.639" tests="1" skipped="0" failures="0" errors="0">
+<testcase classname="Feature to test the add, edit and delete options for the pay grades" name="Verify the edit currency functionality - Example #1.1" time="43.338">
 <system-out><![CDATA[
 Given the user logins the page with valid credentials.......................passed
 Given the user is in Pay Grades page........................................passed
-When the user clicks on Edit button in "Grade_Bala" Pay Grades page.........passed
-When user updates the name parameter to "Bala_Grade"........................passed
-And the user clicks on Save button in Edit Pay Grade Page...................passed
-When the user clicks cancel button in Edit Pay Grade page...................passed
-Then the edited Pay Grade Name "Bala_Grade" is updated in the records.......passed
+When the user clicks on Edit button in "Bala_Grade" Pay Grades page.........passed
+And the user clicks on Edit button in "Indian Rupee"........................passed
+When user edits the parameters "20000.00","30000.00"........................passed
+And the currency dropdown is not enabled....................................passed
+And the user clicks on Save button in Add Currency Page.....................passed
+Then the edited currency salaries "20000.00","30000.00" are updated in the records.passed
 ]]></system-out>
 </testcase>
 </testsuite>

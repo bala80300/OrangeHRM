@@ -119,7 +119,7 @@ public class PayGrades extends PayGradesPage {
     }
 
     @When("the user clicks cancel button in Edit Pay Grade page")
-    public void the_user_clicks_cancel_button_in_edit_pay_grade_page()  {
+    public void the_user_clicks_cancel_button_in_edit_pay_grade_page() {
         try {
             Thread.sleep(5000);
         } catch (InterruptedException e) {
@@ -135,16 +135,29 @@ public class PayGrades extends PayGradesPage {
     }
 
     //editing the currency
+    @And("the user clicks on Edit button in {string}")
+    public void theUserClicksOnEditButtonIn(String currency) {
+        editButton(currency);
+    }
     @When("user edits the parameters {string},{string}")
-    public void user_edits_the_parameters(String string, String string2) {
+    public void user_edits_the_parameters(String updatedMinimumSalary, String updatedMaximumSalary) {
+        Assert.assertEquals("Edit Currency",getEditCurrencyTitle());
+        updatedMinimumSalaryField(updatedMinimumSalary);
+        updatedMaximumSalaryField(updatedMaximumSalary);
     }
 
-    @And("the {string} field is not enabled")
-    public void the_field_is_not_enabled(String string) {
+    @And("the currency dropdown is not enabled")
+    public void the_field_is_not_enabled() {
+        Assert.assertFalse(currencyDropdownVisibility());
     }
 
     @Then("the edited currency salaries {string},{string} are updated in the records")
-    public void theEditedCurrencySalariesAreUpdatedInTheRecords(String arg0, String arg1) {
+    public void theEditedCurrencySalariesAreUpdatedInTheRecords(String updatedMinimumSalary, String updatedMaximumSalary) {
+        WebElement updatedMinSalInRecord = driver.findElement(By.xpath("//div[text()='"+updatedMinimumSalary+"']"));
+        WebElement updatedMaxSalInRecord = driver.findElement(By.xpath("//div[text()='"+updatedMaximumSalary+"']"));
+
+        Assert.assertEquals(updatedMinimumSalary,updatedMinSalInRecord.getText());
+        Assert.assertEquals(updatedMaximumSalary,updatedMaxSalInRecord.getText());
     }
 
     //Deleting paygrades and currency

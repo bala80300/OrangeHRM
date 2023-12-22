@@ -97,4 +97,27 @@ public class PayGradesPage extends OrangeHRMBase {
     public String getEditCurrencyTitle() {
         return driver.findElement(By.xpath("//div/h6[text()='Edit Currency']")).getText();
     }
+    public void updatedMinimumSalaryField(String updatedMinimumSalary) {
+        WebElement minimumSalaryFieldLocator = driver.findElement(By.xpath("//div/label[text()='Minimum Salary']//following::input[position()=1]"));
+        try {
+            Thread.sleep(1000);
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
+        minimumSalaryFieldLocator.sendKeys(Keys.chord(Keys.CONTROL, "a", Keys.BACK_SPACE));
+        minimumSalaryFieldLocator.sendKeys(updatedMinimumSalary);
+    }
+    public void updatedMaximumSalaryField(String updatedMaximumSalary) {
+        WebElement maximumSalaryFieldLocator = driver.findElement(By.xpath("//div/label[text()='Maximum Salary']//following::input[position()=1]"));
+        try {
+            Thread.sleep(1000);
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
+        maximumSalaryFieldLocator.sendKeys(Keys.chord(Keys.CONTROL, "a", Keys.BACK_SPACE));
+        maximumSalaryFieldLocator.sendKeys(updatedMaximumSalary);
+    }
+    public boolean currencyDropdownVisibility() {
+        return driver.findElement(By.xpath("//label[text()='Currency']/following::input[position()=1]")).isEnabled();
+    }
 }

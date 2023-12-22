@@ -41,14 +41,15 @@ Feature: Feature to test the add, edit and delete options for the pay grades
   Scenario Outline: Verify the edit currency functionality
     Given the user is in Pay Grades page
     When the user clicks on Edit button in "<updatedName>" Pay Grades page
+    And the user clicks on Edit button in "<currency>"
     When user edits the parameters "<updatedMinimumSalary>","<updatedMaximumSalary>"
-    And the "<currency>" field is not enabled
+    And the currency dropdown is not enabled
     And the user clicks on Save button in Add Currency Page
-    Then the edited currency salaries "<updatedMinimumSalary>",<"updatedMaximumSalary"> are updated in the records
+    Then the edited currency salaries "<updatedMinimumSalary>","<updatedMaximumSalary>" are updated in the records
 
     Examples:
-      | updatedName | updatedMinimumSalary | updatedMaximumSalary |
-      | Bala_Grade  | 20000                | 30000                |
+      | updatedName | updatedMinimumSalary | updatedMaximumSalary | currency     |
+      | Bala_Grade  | 20000.00             | 30000.00             | Indian Rupee |
 
   @delete_paygrade_and_currency
   Scenario Outline: Verify the delete pay grade and delete currency functionality
