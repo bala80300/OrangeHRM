@@ -9,7 +9,7 @@ import io.cucumber.junit.CucumberOptions;
 @CucumberOptions(
         features = "src/test/resources/features",
         glue = {"stepDefinitions", "hooks"},
-        tags = "@edit_currency",
+        tags = "@paygrades",
         monochrome = true,
         dryRun = false,
         plugin = {

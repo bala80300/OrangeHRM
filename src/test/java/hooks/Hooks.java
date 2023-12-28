@@ -1,7 +1,6 @@
 package hooks;
 
-import io.cucumber.java.After;
-import io.cucumber.java.Before;
+import io.cucumber.java.*;
 import org.OrangeHRM_BDD.testBase.OrangeHRMBase;
 
 public class Hooks {

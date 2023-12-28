@@ -56,12 +56,13 @@ Feature: Feature to test the add, edit and delete options for the pay grades
     Given the user is in Pay Grades page
     When the user clicks on Edit button in "<updatedName>" in Pay Grades page
     When the user clicks on delete button on the "<currency>"
-    When the user clicks YES on Are you sure Dialog
+    And the user clicks YES on Are you sure Dialog
     Then the "<currency>" will be deleted
     When the user clicks cancel button in Edit Pay Grade page
     When the user clicks on delete button on the "<updatedName>" in Pay Grades page
+    And the user clicks YES on Are you sure Dialog
     Then the "<updatedName>" pay grade is deleted
 
     Examples:
-      | updatedName | currency           |
-      | Bala_Grade  | INR - Indian Rupee |
+      | updatedName | currency     |
+      | Bala_Grade  | Indian Rupee |

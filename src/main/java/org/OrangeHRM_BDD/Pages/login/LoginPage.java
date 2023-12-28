@@ -1,12 +1,11 @@
 package org.OrangeHRM_BDD.Pages.login;
 
 import org.OrangeHRM_BDD.testBase.OrangeHRMBase;
-import org.OrangeHRM_BDD.Pages.Dashboard.DashboardPage;
 import org.openqa.selenium.By;
 
 public class LoginPage extends OrangeHRMBase {
-    public void loginTextDisplay() {
-        driver.findElement(By.xpath("//div/h5")).isDisplayed();
+    public Boolean loginTextDisplay() {
+       return driver.findElement(By.xpath("//div/h5")).isDisplayed();
     }
 
     /**

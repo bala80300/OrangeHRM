@@ -1,4 +1,4 @@
-package stepDefinitions.Login;
+package stepDefinitions.LoginAndLogout;
 
 import io.cucumber.java.en.*;
 import org.OrangeHRM_BDD.Pages.Dashboard.DashboardPage;
@@ -11,7 +11,7 @@ public class Login {
 
     @Given("the user is in login page")
     public void theUserIsInLoginPage() {
-        loginPage.loginTextDisplay();
+        Assert.assertTrue(loginPage.loginTextDisplay());
     }
 
     @When("the user enters username {string} and password {string}")
@@ -27,7 +27,7 @@ public class Login {
 
     @Then("the dashboard page is displayed")
     public void theDashboardPageIsDisplayed() {
-        dashboardPage.dashboardHeader();
+        Assert.assertTrue(dashboardPage.dashboardHeader());
     }
 
     @Then("the error message should be displayed and it should not login")

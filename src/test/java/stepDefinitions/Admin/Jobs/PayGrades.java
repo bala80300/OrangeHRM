@@ -6,6 +6,7 @@ import org.OrangeHRM_BDD.Pages.Admin.Job.PayGradesPage;
 import org.OrangeHRM_BDD.Pages.Modules.Admin;
 import org.junit.Assert;
 import org.openqa.selenium.By;
+import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -13,7 +14,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import java.time.Duration;
 
 public class PayGrades extends PayGradesPage {
-    WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
+    WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
     JobDropdownsPage jobDropdownsPage = new JobDropdownsPage();
     Admin admin = new Admin();
 
@@ -139,9 +140,10 @@ public class PayGrades extends PayGradesPage {
     public void theUserClicksOnEditButtonIn(String currency) {
         editButton(currency);
     }
+
     @When("user edits the parameters {string},{string}")
     public void user_edits_the_parameters(String updatedMinimumSalary, String updatedMaximumSalary) {
-        Assert.assertEquals("Edit Currency",getEditCurrencyTitle());
+        Assert.assertEquals("Edit Currency", getEditCurrencyTitle());
         updatedMinimumSalaryField(updatedMinimumSalary);
         updatedMaximumSalaryField(updatedMaximumSalary);
     }
@@ -153,35 +155,50 @@ public class PayGrades extends PayGradesPage {
 
     @Then("the edited currency salaries {string},{string} are updated in the records")
     public void theEditedCurrencySalariesAreUpdatedInTheRecords(String updatedMinimumSalary, String updatedMaximumSalary) {
-        WebElement updatedMinSalInRecord = driver.findElement(By.xpath("//div[text()='"+updatedMinimumSalary+"']"));
-        WebElement updatedMaxSalInRecord = driver.findElement(By.xpath("//div[text()='"+updatedMaximumSalary+"']"));
+        WebElement updatedMinSalInRecord = driver.findElement(By.xpath("//div[text()='" + updatedMinimumSalary + "']"));
+        WebElement updatedMaxSalInRecord = driver.findElement(By.xpath("//div[text()='" + updatedMaximumSalary + "']"));
 
-        Assert.assertEquals(updatedMinimumSalary,updatedMinSalInRecord.getText());
-        Assert.assertEquals(updatedMaximumSalary,updatedMaxSalInRecord.getText());
+        Assert.assertEquals(updatedMinimumSalary, updatedMinSalInRecord.getText());
+        Assert.assertEquals(updatedMaximumSalary, updatedMaxSalInRecord.getText());
     }
 
     //Deleting paygrades and currency
     @When("the user clicks on Edit button in {string} in Pay Grades page")
-    public void the_user_clicks_on_edit_button_in_in_pay_grades_page(String string) {
+    public void the_user_clicks_on_edit_button_in_in_pay_grades_page(String updatedName) {
+        editButton(updatedName);
     }
 
     @When("the user clicks on delete button on the {string}")
-    public void the_user_clicks_on_delete_button_on_the(String string) {
+    public void the_user_clicks_on_delete_button_on_the(String currency) {
+        deleteButton(currency);
     }
 
-    @When("the user clicks YES on Are you sure Dialog")
+    @And("the user clicks YES on Are you sure Dialog")
     public void the_user_clicks_yes_on_are_you_sure_dialog() {
+        yesInconfirmationDialogButton();
     }
 
     @Then("the {string} will be deleted")
-    public void the_will_be_deleted(String string) {
+    public void the_will_be_deleted(String currency) {
+        try {
+            driver.findElement(By.xpath("//div[text()='" + currency + "']//following::div[position()=1]"));
+        } catch (NoSuchElementException e) {
+            System.out.println("The currency " + currency + " is deleted from the records");
+        }
     }
 
     @When("the user clicks on delete button on the {string} in Pay Grades page")
-    public void the_user_clicks_on_delete_button_on_the_in_pay_grades_page(String string) {
+    public void the_user_clicks_on_delete_button_on_the_in_pay_grades_page(String updatedName) {
+        deleteButton(updatedName);
     }
 
     @Then("the {string} pay grade is deleted")
-    public void the_pay_grade_is_deleted(String string) {
+    public void the_pay_grade_is_deleted(String updatedName) {
+        try {
+            driver.findElement(By.xpath("//div[text()='" + updatedName + "'][position()=1]"));
+        }
+        catch (NoSuchElementException e) {
+            System.out.println("The paygrade " + updatedName + " is deleted from the records");
+        }
     }
 }

@@ -120,4 +120,11 @@ public class PayGradesPage extends OrangeHRMBase {
     public boolean currencyDropdownVisibility() {
         return driver.findElement(By.xpath("//label[text()='Currency']/following::input[position()=1]")).isEnabled();
     }
+    public void yesInconfirmationDialogButton() {
+        driver.findElement(By.xpath("//button[text()=' Yes, Delete ']")).click();
+    }
+
+    public void noInconfirmationDialogButton() {
+        driver.findElement(By.xpath("//button[text()=' No, Cancel ']")).click();
+    }
 }
