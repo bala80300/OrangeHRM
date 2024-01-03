@@ -1,6 +1,109 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="Cucumber" time="150.845" tests="4" skipped="0" failures="0" errors="0">
-<testcase classname="Feature to test the add, edit and delete options for the pay grades" name="Verify the add pay grade and add currency functionality - Example #1.1" time="23.874">
+<testsuite name="Cucumber" time="364.616" tests="13" skipped="0" failures="0" errors="0">
+<testcase classname="Testing the login functionality" name="Login the application with valid username and password" time="12.404">
+<system-out><![CDATA[
+Given the user is in login page.............................................passed
+When the user enters username "Admin" and password "admin123"...............passed
+And clicks on Login button..................................................passed
+Then the dashboard page is displayed........................................passed
+]]></system-out>
+</testcase>
+<testcase classname="Testing the login functionality" name="Login the application with invalid username and password" time="8.14">
+<system-out><![CDATA[
+Given the user is in login page.............................................passed
+When the user enters username "Admin" and password "admin1234"..............passed
+And clicks on Login button..................................................passed
+Then the error message should be displayed and it should not login..........passed
+]]></system-out>
+</testcase>
+<testcase classname="Testing the logout functionality" name="Logging out the application" time="11.657">
+<system-out><![CDATA[
+Given the user logins the page with valid credentials.......................passed
+Given the user is in dashboard page.........................................passed
+When the user clicks on profile button......................................passed
+And a dropdown is opened and click on Logout................................passed
+Then the user logged out and login page is displayed........................passed
+]]></system-out>
+</testcase>
+<testcase classname="Feature to test the user search" name="Verify search And reset functionality in user management - Example #1.1" time="18.065">
+<system-out><![CDATA[
+Given the user logins the page with valid credentials.......................passed
+Given the user is in user management page...................................passed
+And user notes the total records of the users...............................passed
+When user searches with search parameters "Admin", "Admin", "Collings", "Enabled".passed
+And clicks on Search button.................................................passed
+Then the searched user is displayed with the "(1) Record Found".............passed
+When the user clicks on Reset button........................................passed
+Then the values in all of the search parameters should be removed...........passed
+And it should show all the records..........................................passed
+]]></system-out>
+</testcase>
+<testcase classname="Feature to test the user search" name="Verify search And reset functionality in user management - Example #1.2" time="18.14">
+<system-out><![CDATA[
+Given the user logins the page with valid credentials.......................passed
+Given the user is in user management page...................................passed
+And user notes the total records of the users...............................passed
+When user searches with search parameters "Admin", "Admin", "Collings", "Disabled".passed
+And clicks on Search button.................................................passed
+Then the searched user is displayed with the "No Records Found".............passed
+When the user clicks on Reset button........................................passed
+Then the values in all of the search parameters should be removed...........passed
+And it should show all the records..........................................passed
+]]></system-out>
+</testcase>
+<testcase classname="Feature to test the add, edit and delete options for the user" name="Verify the add user functionality - Example #1.1" time="22.495">
+<system-out><![CDATA[
+Given the user logins the page with valid credentials.......................passed
+Given the user is in user management page...................................passed
+When the user clicks on Add button in Search Users page.....................passed
+Then the user is in Add User Page...........................................passed
+When user adds with parameters "Admin", "Enabled", "Collings", "Bala S", "Bala@123", "Bala@123".passed
+And the user clicks on Save button in Add User Page.........................passed
+Then the user with "Bala S" should be saved and added to the user records...passed
+]]></system-out>
+</testcase>
+<testcase classname="Feature to test the add, edit and delete options for the user" name="Verify the edit user and delete user functionality - Example #1.1" time="56.217">
+<system-out><![CDATA[
+Given the user logins the page with valid credentials.......................passed
+Given the user navigates to already created user with "Bala S"..............passed
+When the user clicks on edit button for the user with "Bala S"..............passed
+Then the user is in Edit User Page..........................................passed
+When user edits with parameters "ESS", "Disabled"...........................passed
+And the user clicks on Save button in Edit user page........................passed
+Then the "Bala S" should be updated to the user records with "ESS", "Disabled".passed
+And user notes the total records of the users...............................passed
+When the user clicks on delete button for the user with "Bala S"............passed
+And the user clicks YES on Are you sure? Dialog.............................passed
+Then the user "Bala S" will be deleted from the user records................passed
+]]></system-out>
+</testcase>
+<testcase classname="Feature to test the add, edit and delete options for the job titles" name="Verify the add job title functionality - Example #1.1" time="18.592">
+<system-out><![CDATA[
+Given the user logins the page with valid credentials.......................passed
+Given the user is in job titles page........................................passed
+When the user clicks on Add button in job Titles page.......................passed
+Then the user is in Add Job Title Page......................................passed
+When user adds with parameters "Data Analyst", "Analysing the data for projects", "Analysing the data for projects".passed
+And the user clicks on Save button in Add Job Title Page....................passed
+Then the newly added "Data Analyst" and "Analysing the data for projects" should be saved and added to the Job Titles records.passed
+]]></system-out>
+</testcase>
+<testcase classname="Feature to test the add, edit and delete options for the job titles" name="Verify the edit user and delete job titles functionality - Example #1.1" time="54.392">
+<system-out><![CDATA[
+Given the user logins the page with valid credentials.......................passed
+Given the user navigates to already created job title with "Data Analyst"...passed
+When the user clicks on edit button for the job with "Data Analyst".........passed
+Then the user is in Edit Job Title page.....................................passed
+When user edits with parameters "Data Scientist", "Making decisions on analysed data", "Making decisions on analysed data".passed
+And the user clicks on Save button in Edit Job Title page...................passed
+Then the records should be updated as "Data Scientist", "Making decisions on analysed data".passed
+And user notes the total records of the Job Titles..........................passed
+When the user clicks on delete button for the user with "Data Scientist" in Job Titles page.passed
+And the user clicks YES on Are you sure Dialog in Job Titles page...........passed
+Then the job Title "Data Scientist" will be deleted from the records........passed
+]]></system-out>
+</testcase>
+<testcase classname="Feature to test the add, edit and delete options for the pay grades" name="Verify the add pay grade and add currency functionality - Example #1.1" time="20.439">
 <system-out><![CDATA[
 Given the user logins the page with valid credentials.......................passed
 Given the user is in Pay Grades page........................................passed
@@ -18,7 +121,7 @@ When the user clicks button cancel in Edit Pay Grade page...................pass
 Then the newly added pay grade "Grade_Bala" and currency "Indian Rupee" is visible.passed
 ]]></system-out>
 </testcase>
-<testcase classname="Feature to test the add, edit and delete options for the pay grades" name="Verify the edit pay grade functionality - Example #1.1" time="21.431">
+<testcase classname="Feature to test the add, edit and delete options for the pay grades" name="Verify the edit pay grade functionality - Example #1.1" time="23.231">
 <system-out><![CDATA[
 Given the user logins the page with valid credentials.......................passed
 Given the user is in Pay Grades page........................................passed
@@ -29,7 +132,7 @@ When the user clicks cancel button in Edit Pay Grade page...................pass
 Then the edited Pay Grade Name "Bala_Grade" is updated in the records.......passed
 ]]></system-out>
 </testcase>
-<testcase classname="Feature to test the add, edit and delete options for the pay grades" name="Verify the edit currency functionality - Example #1.1" time="21.297">
+<testcase classname="Feature to test the add, edit and delete options for the pay grades" name="Verify the edit currency functionality - Example #1.1" time="18.691">
 <system-out><![CDATA[
 Given the user logins the page with valid credentials.......................passed
 Given the user is in Pay Grades page........................................passed
@@ -41,7 +144,7 @@ And the user clicks on Save button in Add Currency Page.....................pass
 Then the edited currency salaries "20000.00","30000.00" are updated in the records.passed
 ]]></system-out>
 </testcase>
-<testcase classname="Feature to test the add, edit and delete options for the pay grades" name="Verify the delete pay grade and delete currency functionality - Example #1.1" time="83.986">
+<testcase classname="Feature to test the add, edit and delete options for the pay grades" name="Verify the delete pay grade and delete currency functionality - Example #1.1" time="81.774">
 <system-out><![CDATA[
 Given the user logins the page with valid credentials.......................passed
 Given the user is in Pay Grades page........................................passed

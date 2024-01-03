@@ -1,4 +1,4 @@
-@login
+@login @demo
 Feature: Testing the login functionality
 
   Scenario: Login the application with valid username and password

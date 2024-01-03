@@ -64,6 +64,6 @@ public class SearchUsers extends SearchUsersPage {
     @And("it should show all the records")
     public void itShouldShowAllTheRecords() {
         Assert.assertEquals(totalRecords(), totalRecords());
-        //System.out.println(totalRecords());
+        System.out.println(totalRecords());
     }
 }

@@ -14,6 +14,6 @@ Feature: Feature to test the user search
     Then the values in all of the search parameters should be removed
     And it should show all the records
     Examples:
-      | username | userRole | employeeName  | status   | message          |
-      | Admin    | Admin    | Paul Collings | Enabled  | (1) Record Found |
-      | Admin    | Admin    | Paul Collings | Disabled | No Records Found |
+      | username | userRole | employeeName | status   | message          |
+      | Admin    | Admin    | Collings     | Enabled  | (1) Record Found |
+      | Admin    | Admin    | Collings     | Disabled | No Records Found |
